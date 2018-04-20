@@ -29,7 +29,7 @@
             <Label text="Event Postcode:" GridPane.rowIndex="2" />
             <Label text="Event Telephone:" GridPane.rowIndex="3" />
             <Label text="Event Info:" GridPane.rowIndex="4" />
-            <TextArea fx:id="eventInfoField" prefHeight="49.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="eventInfoField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <HBox spacing="20.0" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0">
