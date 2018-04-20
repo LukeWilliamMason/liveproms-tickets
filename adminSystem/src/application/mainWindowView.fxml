@@ -27,7 +27,7 @@
             <Button fx:id="vtickets" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Valid Tickets" GridPane.rowIndex="3" />
             <Button fx:id="esettings" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Event Settings" GridPane.rowIndex="5" />
             <Button fx:id="invitations" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Invitations" GridPane.rowIndex="4" />
-            <Button fx:id="newevent" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="New Event +" GridPane.rowIndex="7" />
+            <Button fx:id="newEventButton" mnemonicParsing="false" onAction="#handleNewEvent" prefHeight="50.0" prefWidth="200.0" text="New Event +" GridPane.rowIndex="7" />
             <GridPane>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="150.0" />
@@ -48,7 +48,7 @@
             <Button fx:id="info" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Infomation" GridPane.rowIndex="1" />
             <TableView fx:id="eventView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
               <columns>
-                <TableColumn fx:id="eventName" prefWidth="200.0" text="Events" />
+                <TableColumn fx:id="eventName" prefWidth="198.0" text="Events" />
               </columns>
             </TableView>
          </children>

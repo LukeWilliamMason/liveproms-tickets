@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
@@ -37,7 +38,7 @@ public class Main extends Application {
 	
 	public void newEventWindow() {
 		try {
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("newEventView.fxml"));
+			FXMLLoader loader = new FXMLLoader(NewEventController.class.getResource("newEventView.fxml"));
 			AnchorPane pane = loader.load();
 			Scene scene = new Scene(pane);
 			
