@@ -17,8 +17,6 @@ public class MainWindowController {
 	
 	public void initialize(){
 		eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("eventName"));
-		
-		
 	}
 	
 	public void setMain(Main main) {

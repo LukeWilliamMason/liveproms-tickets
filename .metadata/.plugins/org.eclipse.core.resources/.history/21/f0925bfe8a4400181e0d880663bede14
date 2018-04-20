@@ -37,8 +37,6 @@ public class Main extends Application {
 	}
 	
 	private ObservableList<Event> eventData = FXCollections.observableArrayList();
-	public ObservableList<Event> getEventData() {return eventData; }
-	
 	
 	public Main() {
 		eventData.add(new Event ("Truckfest Peterborough 2018", "East of England Showground", "PE112AB", "01273666490", "A place full of trucks!"));

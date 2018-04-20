@@ -37,16 +37,9 @@ public class Main extends Application {
 	}
 	
 	private ObservableList<Event> eventData = FXCollections.observableArrayList();
-	public ObservableList<Event> getEventData() {return eventData; }
-	
 	
 	public Main() {
 		eventData.add(new Event ("Truckfest Peterborough 2018", "East of England Showground", "PE112AB", "01273666490", "A place full of trucks!"));
-		eventData.add(new Event ("LandRover Owners Internation 2018", "East of England Showground", "PE112AB", "01273666490", "A place full of Landies!"));
-		eventData.add(new Event ("Sywell Classic 2018", "Sywell Aerodrome", "SW121AB", "01263677400", "A place full of planes!"));
-		eventData.add(new Event ("MCN 2017", "Scotland Showground", "ED112AB", "01273666490", "A place full of bikes!"));
-		eventData.add(new Event ("UB40 at Lincoln Castl 2018", "Lincoln Castle", "LN142AB", "01277666490", "UB40 play!"));
-
 	}
 	
 	public static void main(String[] args) {

@@ -1,0 +1,24 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+
+public class MainWindowController {
+
+	@FXML ListView<Event> eventView;
+	
+	private Main main;
+	
+	public void initialize(){
+		
+	}
+	
+	public void setMain(Main main) {
+		this.main = main;
+	}
+	
+	@FXML
+	public void handleNewEvent() {
+		
+	}
+}
