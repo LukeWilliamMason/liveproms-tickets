@@ -1,7 +1,6 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,7 +11,6 @@ public class MainWindowController {
 
 	@FXML TableView<Event> eventView;
 	@FXML TableColumn<Event, String> eventName;
-	@FXML Label eventNameLabel, eventAddressLabel, eventPostcodeLabel, eventTelLabel, eventInfoLabel;
 	
 	
 	private Main main;
@@ -31,11 +29,7 @@ public class MainWindowController {
 	}
 	
 	public void showEventDetails(Event event) {
-		eventNameLabel.setText(event.getEventName());
-		eventAddressLabel.setText(event.getEventAddress());
-		eventPostcodeLabel.setText(event.getEventPostcode());
-		eventTelLabel.setText(event.getEventTel());
-		eventInfoLabel.setText(event.getEventInfo());
+		
 	}
 	
 	@FXML
