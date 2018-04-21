@@ -1,0 +1,10 @@
+.parent{
+	-fx-background-color: #FDFDE;
+	}
+	.sidebar{
+		-fx-background-color: #F4FFFF;
+	}
+	.create-event-btn{
+		-fx-background-color: #028CCA;
+		-fx-background-radius: 10px;
+	}

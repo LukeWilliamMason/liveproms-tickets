@@ -1,0 +1,15 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.menubutton{
+  -fx-background-color: #2c3e50;
+  -fx-color: #7f8c8d;
+  -fx-font-size: 14px;
+  -fx-cursor: pointer;
+}
+
+.menubutton:hover{
+  -fx-background-color: #2c3e50;
+  -fx-color: #FFFFFF;
+  -fx-font-size: 14px;
+  -fx-cursor: pointer;
+}

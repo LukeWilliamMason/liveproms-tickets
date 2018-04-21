@@ -1,0 +1,22 @@
+.parent{
+	-fx-background-color: #FDFDE;
+	}
+	.sidebar{
+		-fx-background-color: #FFF8E6;
+	}
+	.close-btn{
+		-fx-background-color:#FF6058;
+		-fx-background-radius: 100%;
+	}
+	.close-btn:hover{
+		-fx-background-color:red;
+		-fx-background-radius: 100%;
+	}
+	.min-btn{
+		-fx-background-color:#27CA41;
+		-fx-background-radius: 100%;
+	}
+	.min-btn:hover{
+		-fx-background-color:green;
+		-fx-background-radius: 100%;
+	}

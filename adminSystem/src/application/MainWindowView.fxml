@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-insets: #2c3e50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <children>
       <GridPane layoutX="250.0" layoutY="186.0" prefHeight="319.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -23,11 +23,11 @@
             <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="analytics" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Analytics" GridPane.rowIndex="2" />
-            <Button fx:id="vtickets" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Valid Tickets" GridPane.rowIndex="3" />
-            <Button fx:id="esettings" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Event Settings" GridPane.rowIndex="5" />
-            <Button fx:id="invitations" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Invitations" GridPane.rowIndex="4" />
-            <Button fx:id="newEventButton" mnemonicParsing="false" onAction="#handleNewEvent" prefHeight="50.0" prefWidth="200.0" text="New Event +" GridPane.rowIndex="7" />
+            <Button fx:id="analytics" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Analytics" textFill="#7f8c8d" GridPane.rowIndex="2" />
+            <Button fx:id="vtickets" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Valid Tickets" textFill="#7f8c8d" GridPane.rowIndex="3" />
+            <Button fx:id="esettings" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Event Settings" textFill="#7f8c8d" GridPane.rowIndex="5" />
+            <Button fx:id="invitations" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Invitations" textFill="#7f8c8d" GridPane.rowIndex="4" />
+            <Button fx:id="newEventButton" mnemonicParsing="false" onAction="#handleNewEvent" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="New Event +" textFill="#7f8c8d" GridPane.rowIndex="7" />
             <GridPane>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="150.0" />
@@ -45,7 +45,7 @@
                   <Button fx:id="logout" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Logout" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="info" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Infomation" GridPane.rowIndex="1" />
+            <Button fx:id="info" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Infomation" textFill="#7f8c8d" GridPane.rowIndex="1" />
             <TableView fx:id="eventView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
               <columns>
                 <TableColumn fx:id="eventName" prefWidth="198.0" text="Events" />

@@ -1,0 +1,6 @@
+.parent{
+	-fx-background-color: #F4FFFF;
+	}
+	.sidebar{
+		-fx-background-color: #FFF8E6;
+	}

@@ -1,0 +1,18 @@
+.parent{
+	-fx-background-color: #FDFDE;
+	}
+.sidebar{
+	-fx-background-color: #FFFFFF;
+}
+.create-event-btn{
+	-fx-background-color: #5680E9;
+	-fx-background-radius: 5px;
+}
+.sidebar-btns{
+	-fx-background-color: transparent;
+	-fx-background-radius: 5px;
+}
+.sidebar-btns:hover{
+	-fx-text-fill: #FFFFFF;
+	-fx-background-radius: 5px;
+}
