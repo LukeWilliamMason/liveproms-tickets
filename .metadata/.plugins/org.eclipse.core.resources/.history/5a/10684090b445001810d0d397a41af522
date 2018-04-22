@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="571.0" prefHeight="50.0" prefWidth="220.0" styleClass="create-event-btn" stylesheets="@application.css">
+               <effect>
+                  <DropShadow color="#b5a9a9" />
+               </effect>
+               <children>
+                  <MaterialDesignIconView fill="WHITE" glyphName="PALETTE" scaleX="1.5" scaleY="1.5">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </MaterialDesignIconView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="27.0" text="Create Event" textFill="WHITE">
+                     <font>
+                        <Font name="Helvetica" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="56.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Helvetica" size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <VBox layoutX="40.0">
+               <children>
+                  <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#727272">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <HBox>
+                     <children>
+                        <Button fx:id="invitationsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Invitations" textFill="#1c1c1c">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="packagesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
+               </children>
+            </VBox>
+            <VBox layoutX="20.0" layoutY="12.0" spacing="25.0">
+               <children>
+                  <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
+                  <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
+                  <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75" />
+                  <MaterialDesignIconView fill="#0086b8" glyphName="EMAIL_OPEN" scaleX="1.75" scaleY="1.75" text="" />
+                  <MaterialDesignIconView fill="#e4e4e4" glyphName="PACKAGE_VARIANT_CLOSED" scaleX="1.9" scaleY="1.9" />
+                  <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75" />
+               </children>
+            </VBox>
+            <Text fill="#727272" layoutX="18.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVENTS">
+               <font>
+                  <Font name="Helvetica" size="13.0" />
+               </font>
+            </Text>
+            <TableView fx:id="eventView" layoutY="254.0" prefHeight="308.0" prefWidth="250.0" styleClass="event-table">
+              <columns>
+                <TableColumn fx:id="eventName" prefWidth="248.0" text="Name" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <HBox prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="70.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/Live%20Promotions.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="eventNameLabel" prefHeight="70.0" prefWidth="600.0" text="Invitations" textFill="#70707069">
+               <font>
+                  <Font name="Helvetica" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="loginNameLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="200.0" textAlignment="RIGHT" textFill="#707070">
+               <font>
+                  <Font name="Helvetica" size="14.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" styleClass="sidebar-btns" textAlignment="RIGHT">
+               <graphic>
+                  <MaterialDesignIconView fx:id="logoutButton" fill="#707070" glyphName="POWER" scaleX="2.0" scaleY="2.0" />
+               </graphic>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

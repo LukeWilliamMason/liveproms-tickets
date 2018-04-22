@@ -1,0 +1,14 @@
+package application;
+
+public class Event {
+
+	private String eventID;
+	private String eventName;
+	private String eventInfo;
+	private String eventAddressLineOne;
+	private String eventAdderssLineTwo;
+	private String eventPostcode;
+	private String eventTel;
+	private String eventTC;
+	
+}

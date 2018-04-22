@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="70.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/Live%20Promotions.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="eventNameLabel" prefHeight="70.0" prefWidth="600.0" text="Dashboard" textFill="#70707069">
+               <font>
+                  <Font name="Helvetica" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="loginNameLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="200.0" text="Jodie Mason" textAlignment="RIGHT" textFill="#707070">
+               <font>
+                  <Font name="Helvetica" size="14.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" styleClass="sidebar-btns" textAlignment="RIGHT">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

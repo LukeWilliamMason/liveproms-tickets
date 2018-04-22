@@ -1,0 +1,43 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class MainWindowController {
+
+	@FXML TableView<Event> eventView;
+	@FXML TableColumn<Event, String> eventName;
+	@FXML Label eventNameLabel, eventAddressLabel, eventPostcodeLabel, eventTelLabel, eventInfoLabel;
+	
+	
+	private Main main;
+	
+	public void initialize(){
+		eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("eventName"));
+		
+		eventView.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> showEventDetails(newValue));
+		
+	}
+	
+	public void setMain(Main main) {
+		this.main = main;
+		eventView.setItems(main.getEventData());
+	}
+	
+	public void showEventDetails(Event event) {
+		eventNameLabel.setText(event.getEventName());
+		eventAddressLabel.setText(event.getEventAddress());
+		eventPostcodeLabel.setText(event.getEventPostcode());
+		eventTelLabel.setText(event.getEventTel());
+		eventInfoLabel.setText(event.getEventInfo());
+	}
+	
+	@FXML
+	public void handleNewEvent() {
+		main.newEventWindow();
+	}
+}

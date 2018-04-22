@@ -1,82 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-insets: #2c3e50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <children>
-      <GridPane layoutX="250.0" layoutY="186.0" prefHeight="319.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="0.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="0.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="0.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="analytics" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Analytics" textFill="#7f8c8d" GridPane.rowIndex="2" />
-            <Button fx:id="vtickets" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Valid Tickets" textFill="#7f8c8d" GridPane.rowIndex="3" />
-            <Button fx:id="esettings" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Event Settings" textFill="#7f8c8d" GridPane.rowIndex="5" />
-            <Button fx:id="invitations" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Invitations" textFill="#7f8c8d" GridPane.rowIndex="4" />
-            <Button fx:id="newEventButton" mnemonicParsing="false" onAction="#handleNewEvent" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="New Event +" textFill="#7f8c8d" GridPane.rowIndex="7" />
-            <GridPane>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="150.0" />
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css">
+         <left>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="571.0" prefHeight="50.0" prefWidth="220.0" styleClass="create-event-btn" stylesheets="@application.css">
+                     <effect>
+                        <DropShadow color="#b5a9a9" />
+                     </effect>
+                     <children>
+                        <MaterialDesignIconView fill="WHITE" glyphName="PALETTE" scaleX="1.5" scaleY="1.5">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </MaterialDesignIconView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="27.0" text="Create Event" textFill="WHITE">
+                           <font>
+                              <Font name="Helvetica" size="14.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXButton prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="56.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Helvetica" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="40.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#1c1c1c">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#727272">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="invitationsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Invitations" textFill="#727272">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="packagesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
+                     <children>
+                        <FontAwesomeIconView fill="#0086b8" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75" />
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="EMAIL_OPEN" scaleX="1.75" scaleY="1.75" />
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="PACKAGE_VARIANT_CLOSED" scaleX="1.9" scaleY="1.9" />
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75" />
+                     </children>
+                  </VBox>
+                  <Text fill="#727272" layoutX="18.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVENTS">
+                     <font>
+                        <Font name="Helvetica" size="13.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="eventView" layoutY="254.0" prefHeight="308.0" prefWidth="250.0" styleClass="event-table">
+                    <columns>
+                      <TableColumn fx:id="eventName" prefWidth="248.0" text="Name" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </left>
+         <top>
+            <HBox prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../../../Desktop/logo2.jpg" />
+                        <Image url="@../../Images/Live%20Promotions.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="logout" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Logout" GridPane.columnIndex="1" />
+                  <Label fx:id="eventNameLabel" prefHeight="70.0" prefWidth="600.0" text="Dashboard" textFill="#70707069">
+                     <font>
+                        <Font name="Helvetica" size="48.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="loginNameLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="200.0" text="Jodie Mason" textAlignment="RIGHT" textFill="#707070">
+                     <font>
+                        <Font name="Helvetica" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" styleClass="sidebar-btns" textAlignment="RIGHT">
+                     <graphic>
+                        <MaterialDesignIconView fx:id="logoutButton" fill="#707070" glyphName="POWER" scaleX="2.0" scaleY="2.0" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
-            </GridPane>
-            <Button fx:id="info" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="menubutton" stylesheets="@application.css" text="Infomation" textFill="#7f8c8d" GridPane.rowIndex="1" />
-            <TableView fx:id="eventView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
-              <columns>
-                <TableColumn fx:id="eventName" prefWidth="198.0" text="Events" />
-              </columns>
-            </TableView>
-         </children>
-      </GridPane>
-      <GridPane layoutX="244.0" layoutY="59.0" prefHeight="234.0" prefWidth="603.0" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="59.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Event:" />
-            <Label text="Venue:" GridPane.rowIndex="1" />
-            <Label text="Postcode:" GridPane.rowIndex="2" />
-            <Label text="Telephone:" GridPane.rowIndex="3" />
-            <Label text="Description:" GridPane.rowIndex="4" />
-            <Label fx:id="eventNameLabel" GridPane.columnIndex="1" />
-            <Label fx:id="eventAddressLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="eventPostcodeLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="eventTelLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="eventInfoLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-         </children>
-      </GridPane>
+            </HBox>
+         </top>
+      </BorderPane>
    </children>
 </AnchorPane>

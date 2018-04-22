@@ -1,0 +1,74 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+
+
+public class Main extends Application {
+	private Stage primaryStage;
+	@Override
+	public void start(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+		mainWindow();
+	}
+	
+	public void mainWindow() {
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("MainWindowView.fxml"));
+			AnchorPane pane = loader.load();
+			Scene scene = new Scene(pane);
+			
+			MainWindowController controller = loader.getController();
+			controller.setMain(this);
+			
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void newEventWindow() {
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("newEventView.fxml"));
+			AnchorPane pane = loader.load();
+			Scene scene = new Scene(pane);
+			
+			Stage stage = new Stage();
+			
+			NewEventController controller = loader.getController();
+			controller.setMain(this, stage);
+			
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private ObservableList<Event> eventData = FXCollections.observableArrayList();
+	public ObservableList<Event> getEventData() {return eventData; }
+	
+	
+	public Main() {
+		eventData.add(new Event ("Truckfest Peterborough 2018", "East of England Showground", "PE112AB", "01273666490", "A place full of trucks!"));
+		eventData.add(new Event ("LandRover Owners Internation 2018", "East of England Showground", "PE112AB", "01273666490", "A place full of Landies!"));
+		eventData.add(new Event ("Sywell Classic 2018", "Sywell Aerodrome", "SW121AB", "01263677400", "A place full of planes!"));
+		eventData.add(new Event ("MCN 2017", "Scotland Showground", "ED112AB", "01273666490", "A place full of bikes!"));
+		eventData.add(new Event ("UB40 at Lincoln Castle 2018", "Lincoln Castle", "LN142AB", "01277666490", "UB40 play!"));
+
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
