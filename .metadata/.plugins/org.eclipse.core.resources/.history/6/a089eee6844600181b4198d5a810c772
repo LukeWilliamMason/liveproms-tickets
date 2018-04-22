@@ -1,4 +1,6 @@
-
+.parent{
+	-fx-background-color: #FFFFFF;
+	}
 .sidebar{
 	-fx-background-color: #FFFFFF;
 }

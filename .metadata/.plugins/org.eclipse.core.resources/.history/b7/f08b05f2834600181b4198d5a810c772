@@ -28,7 +28,6 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
-			primaryStage.setTitle("LP Ticket Artist");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
