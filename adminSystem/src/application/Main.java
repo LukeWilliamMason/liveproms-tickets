@@ -11,26 +11,48 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
-	private Stage primaryStage;
+	public Stage primaryStage;
 	@Override
 	public void start(Stage primaryStage) {
 			this.primaryStage = primaryStage;
-			mainWindow();
+			loginWindow();
 		}
 	
-	public void mainWindow()  {
+	public void loginWindow()  {
 		try{
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("MainWindowView.fxml"));
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("loginView.fxml"));
 			AnchorPane pane = loader.load();
 			Scene scene = new Scene(pane);
 			
-			MainWindowController controller = loader.getController();
+			LoginController controller = loader.getController();
 			controller.setMain(this);
 			
 			primaryStage.setTitle("LP Ticket Artist");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void mainWindow()  {
+		try{
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("MainWindowView.fxml"));
+			AnchorPane pane = loader.load();
+			Scene scene = new Scene(pane);
+			
+			Stage stage = new Stage();
+			
+			MainWindowController controller = loader.getController();
+			controller.setMain(this, stage);
+			
+			stage.setTitle("LP Ticket Artist");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
 			
 			
 		} catch(Exception e) {

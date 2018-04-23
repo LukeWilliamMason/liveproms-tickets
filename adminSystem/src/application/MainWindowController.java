@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class MainWindowController {
 
@@ -12,6 +13,7 @@ public class MainWindowController {
 	@FXML TableColumn<Event ,String> eventNameColumn;
 	@FXML Label eventNameLabel;
 	
+	private Stage stage;
 	private Main main;
 	
 	public void initialize(){
@@ -22,8 +24,9 @@ public class MainWindowController {
 				(observable, oldValue, newValue) -> showTitle(newValue));
 	}
 	
-	public void setMain(Main main){
+	public void setMain(Main main, Stage stage){
 		this.main = main;
+		this.stage = stage;
 		eventView.setItems(main.getEventData());
 	}
 	

@@ -103,7 +103,7 @@
                   </VBox>
                   <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="240.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="320.0" prefWidth="249.0" styleClass="event-view">
                     <columns>
-                      <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" styleClass="event-view" text="EVENTS" />
+                      <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" sortable="false" styleClass="event-view" text="EVENTS" />
                     </columns>
                   </TableView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="243.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />

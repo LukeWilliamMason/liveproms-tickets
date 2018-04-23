@@ -1,0 +1,25 @@
+package application;
+
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
+public class LoginController {
+
+	@FXML private Label loginStatusLabel;
+	@FXML private JFXTextField usernameField;
+	@FXML private JFXPasswordField passwordField;
+	
+	public void handleLogin(ActionEvent event) {
+		if(loginStatusLabel.getText().equals("user") && passwordField.getText().equals("pass")) {
+			loginStatusLabel.setText("Success");
+		} else {
+			loginStatusLabel.setText("Invalid Username or Password");
+		}
+	}
+
+	
+}
