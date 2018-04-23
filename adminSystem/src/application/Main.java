@@ -32,6 +32,7 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.show();
 			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -43,13 +44,13 @@ public class Main extends Application {
 	public Main() {
 	eventData.add(new Event("1", "Truckfest Original 2018", "A Place full of Trucks!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
 	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
-	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("3", "Sywell Classic 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("4", "UB40 at Lincoln Castle 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("5", "Status Quo at Holkham Hall 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("6", "Scottish Land Rover Show 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("7", "Kelmarsh Land Rover Show 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("8", "MCN Bike Show 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("9", "Last Night of the Proms 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
 
 	}
 	

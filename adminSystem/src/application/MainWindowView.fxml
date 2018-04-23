@@ -18,7 +18,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <children>
@@ -102,16 +101,12 @@
                         <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75" />
                      </children>
                   </VBox>
-                  <Text fill="#727272" layoutX="18.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVENTS">
-                     <font>
-                        <Font name="Helvetica" size="13.0" />
-                     </font>
-                  </Text>
-                  <TableView fx:id="eventView" layoutY="254.0" prefHeight="308.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="240.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="320.0" prefWidth="249.0" styleClass="event-view">
                     <columns>
-                      <TableColumn fx:id="eventNameColumn" minWidth="245.0" prefWidth="245.0" styleClass="event-table" text="EVENTS" />
+                      <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" styleClass="event-view" text="EVENTS" />
                     </columns>
                   </TableView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="243.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />
                </children>
             </Pane>
          </left>
@@ -124,12 +119,12 @@
                      </image>
                   </ImageView>
                   <Label fx:id="eventNameLabel" prefHeight="68.0" prefWidth="738.0" text="Dashboard" textFill="#70707069">
-                     <font>
-                        <Font name="Helvetica" size="24.0" />
-                     </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Helvetica" size="24.0" />
+                     </font>
                   </Label>
                   <Label fx:id="loginNameLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="200.0" text="Jodie Mason" textAlignment="RIGHT" textFill="#707070">
                      <font>
