@@ -11,7 +11,8 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
-	public Stage primaryStage;
+	private Stage primaryStage;
+
 	@Override
 	public void start(Stage primaryStage) {
 			this.primaryStage = primaryStage;
@@ -27,10 +28,12 @@ public class Main extends Application {
 			LoginController controller = loader.getController();
 			controller.setMain(this);
 			
-			primaryStage.setTitle("LP Ticket Artist");
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.show();
+			Stage stage = new Stage();
+			
+			stage.setTitle("LP Ticket Artist");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
 			
 			
 		} catch(Exception e) {
@@ -47,18 +50,124 @@ public class Main extends Application {
 			Stage stage = new Stage();
 			
 			MainWindowController controller = loader.getController();
-			controller.setMain(this, stage);
+			controller.setMain(this, primaryStage);
 			
-			stage.setTitle("LP Ticket Artist");
-			stage.setScene(scene);
-			stage.setResizable(false);
-			stage.show();
+			primaryStage.setTitle("LP Ticket Artist");
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
 			
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void analyticsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("AnalyticsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		AnalyticsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void validTicketsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("ValidTicketsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		ValidTicketsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void invitationsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("InvitationsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		InvitationsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void packagesWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("PackagesView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		PackagesController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void settingsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("SettingsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		SettingsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
 	
 	private ObservableList<Event> eventData = FXCollections.observableArrayList();
 	public ObservableList<Event> getEventData() {return eventData;}

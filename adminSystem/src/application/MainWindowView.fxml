@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css">
          <left>
@@ -68,27 +68,27 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
                            </children>
                         </HBox>
-                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
+                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#727272">
+                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleValidTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#727272">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="invitationsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Invitations" textFill="#727272">
+                        <Button fx:id="invitationsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleInvitations" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Invitations" textFill="#727272">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="packagesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
+                        <Button fx:id="packagesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handlePackages" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
+                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
                      </children>
                   </VBox>
                   <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">

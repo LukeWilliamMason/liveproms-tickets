@@ -1,10 +1,15 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MainWindowController {
@@ -40,33 +45,33 @@ public class MainWindowController {
 	}
 	
 	@FXML
-	public void handleDashboard() {
-		
+	public void handleDashboard() throws IOException {
+		main.mainWindow();
 	}
 	
 	@FXML
-	public void handleAnalytics() {
-		
+	public void handleAnalytics() throws IOException {
+		main.analyticsWindow();
 	}
 	
 	@FXML
-	public void handleValidTickets() {
-		
+	public void handleValidTickets() throws IOException{
+		main.validTicketsWindow();
 	}
 	
 	@FXML
-	public void handleInvitations() {
-		
+	public void handleInvitations() throws IOException{
+		main.invitationsWindow();
 	}
 	
 	@FXML
 	public void handlePackages() {
-		
+		main.packagesWindow();
 	}
 	
 	@FXML
 	public void handleSettings() {
-		
+		main.settingsWindow();
 	}
 	
 }
