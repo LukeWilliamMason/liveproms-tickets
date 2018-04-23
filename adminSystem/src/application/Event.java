@@ -1,6 +1,5 @@
 package application;
 
-import java.util.Date;
 
 public class Event {
 
@@ -12,11 +11,9 @@ public class Event {
 	private String eventPostcode;
 	private String eventTel;
 	private String eventTC;
-	private Date eventStartDate;
-	private Date eventEndDate;
 	
 	public Event(String eventID, String eventName, String eventInfo, String eventAddressLineOne, String eventAddressLineTwo,
-			String eventPostcode, String eventTel, String eventTC, Date eventStartDate, Date eventEndDate){
+			String eventPostcode, String eventTel, String eventTC){
 		this.eventID = eventID;
 		this.eventName = eventName;
 		this.eventInfo = eventInfo;
@@ -25,20 +22,17 @@ public class Event {
 		this.eventPostcode = eventPostcode;
 		this.eventTel = eventTel;
 		this.eventTC = eventTC;
-		this.eventStartDate = eventStartDate;
-		this.eventEndDate = eventEndDate;
 	}
 	
 	//getters
 	public String getEventID(){ return eventID; }
+	public String getEventName(){ return eventName; }
 	public String getEventInfo(){ return eventInfo; }
 	public String getEventAddressLineOne(){ return eventAddressLineOne; }
 	public String getEventAdderssLineTwo(){ return eventAdderssLineTwo; }
 	public String getEventPostcode(){ return eventPostcode; }
 	public String getEventTel(){ return eventTel; }
 	public String getEventTC(){ return eventTC; }
-	public Date getEventStartDate(){ return eventStartDate; }
-	public Date getEventEndDate(){ return eventEndDate; }
 	
 	//setters
 	public void setEventID(String eventID){ this.eventID = eventID; }
@@ -49,8 +43,6 @@ public class Event {
 	public void setEventPostcode(String eventPostcode){ this.eventPostcode = eventPostcode; }
 	public void setEventTel(String eventTel){ this.eventTel = eventTel; }
 	public void setEventTC(String eventTC){ this.eventTC = eventTC; }
-	public void setEventStartDate(Date eventStartDate){ this.eventStartDate = eventStartDate; }
-	public void setEventEndDate(Date eventEndDate){ this.eventEndDate = eventEndDate; }
 	
 	
 	
