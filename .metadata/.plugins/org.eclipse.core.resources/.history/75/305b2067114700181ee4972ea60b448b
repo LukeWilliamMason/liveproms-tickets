@@ -46,5 +46,6 @@
 	-fx-font: Helvetica;
 }
 .button:hover{
-	-fx-background-color: #0598C3;
+	-fx-background-color: #0D98C3;
+	-fx-text-fill: #727272;
 }

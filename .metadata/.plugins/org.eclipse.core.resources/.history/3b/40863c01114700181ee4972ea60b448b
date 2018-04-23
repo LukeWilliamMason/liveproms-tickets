@@ -39,12 +39,7 @@
 	-fx-background-color: #FFFFFF;
 	-fx-color: #FFFFFF; 	
 }
-.button{
+button{
 	-fx-background-color: #0693C0;
-	-fx-background-radius: 5px;
-	-fx-text-fill: #FFFFFF;
-	-fx-font: Helvetica;
-}
-.button:hover{
-	-fx-background-color: #0598C3;
+		-fx-background-radius: 5px;
 }

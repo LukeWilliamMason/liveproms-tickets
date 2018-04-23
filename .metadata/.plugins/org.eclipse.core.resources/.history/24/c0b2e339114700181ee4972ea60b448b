@@ -45,6 +45,3 @@
 	-fx-text-fill: #FFFFFF;
 	-fx-font: Helvetica;
 }
-.button:hover{
-	-fx-background-color: #0598C3;
-}
