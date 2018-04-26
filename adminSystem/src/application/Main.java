@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import java.sql.*;
+import java.util.Properties;
 
 
 public class Main extends Application {
@@ -18,7 +20,7 @@ public class Main extends Application {
 			this.primaryStage = primaryStage;
 			loginWindow();
 		}
-	
+
 	public void loginWindow()  {
 		try{
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("loginView.fxml"));
@@ -186,7 +188,44 @@ public class Main extends Application {
 	}
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception  {
+	        // Initialize connection variables. 
+	        String host = "livepromotio.mysql.database.azure.com";
+	        String database = "ticket_system";
+	        String user = "lukelive@livepromotio";
+	        String password = "Live1972";
+
+	        Connection connection = null;
+
+	        // Initialize connection object
+	        try
+	        {
+	            String url = "jdbc:mysql://livepromotio.mysql.database.azure.com/ticket_system";
+
+	            // Set connection properties.
+	            Properties properties = new Properties();
+	            properties.setProperty("user", user);
+	            properties.setProperty("password", password);
+	            properties.setProperty("useSSL", "true");
+	            properties.setProperty("verifyServerCertificate", "true");
+	            properties.setProperty("requireSSL", "false");
+
+	            // get connection
+	            connection = DriverManager.getConnection(url, properties);
+	        }
+	        catch (SQLException e)
+	        {
+	            throw new SQLException("Failed to create connection to database.", e);
+	        }
+	        if (connection != null) 
+	        { 
+	            System.out.println("Successfully created connection to database.");
+
+	            // Perform some SQL queries over the connection.           
+	        }
+	        else {
+	            System.out.println("Failed to create connection to database.");
+	        }
 		launch(args);
 	}
 }

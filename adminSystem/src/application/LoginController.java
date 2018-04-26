@@ -26,6 +26,10 @@ public class LoginController {
 	
 	@FXML
 	public void handleLogin() {
+		
+		
+		String user = usernameField.getText();
+		String password = passwordField.getText();
 		if(usernameField.getText().equals("user") && passwordField.getText().equals("pass")) {
 			main.mainWindow();
 		} else {

@@ -1,0 +1,287 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import java.sql.*;
+import java.util.Properties;
+
+
+public class Main extends Application {
+	private Stage primaryStage;
+
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			connectDB();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			this.primaryStage = primaryStage;
+			loginWindow();
+		}
+
+	public void connectDB()  throws Exception
+    {
+        // Initialize connection variables. 
+        String host = "livepromotio.mysql.database.azure.com";
+        String database = "ticketsystem";
+        String user = "lukelive@livepromotio";
+        String password = "Live1972";
+
+        // check that the driver is installed
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+        }
+
+        System.out.println("MySQL JDBC driver detected in library path.");
+
+        Connection connection = null;
+
+        // Initialize connection object
+        try
+        {
+            String url = String.format("jdbc:mysql://%s/%s", host, database);
+
+            // Set connection properties.
+            Properties properties = new Properties();
+            properties.setProperty("user", user);
+            properties.setProperty("password", password);
+            properties.setProperty("useSSL", "true");
+            properties.setProperty("verifyServerCertificate", "true");
+            properties.setProperty("requireSSL", "false");
+
+            // get connection
+            connection = DriverManager.getConnection(url, properties);
+        }
+        catch (SQLException e)
+        {
+            throw new SQLException("Failed to create connection to database.", e);
+        }
+        if (connection != null) 
+        { 
+            System.out.println("Successfully created connection to database.");
+
+            // Perform some SQL queries over the connection.
+            try
+            {
+                // Drop previous table of same name if one exists.
+                Statement statement = connection.createStatement();
+                statement.execute("DROP TABLE IF EXISTS inventory;");
+                System.out.println("Finished dropping table (if existed).");
+
+                // Create table.
+                statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+                System.out.println("Created table.");
+
+                // Insert some data into table.
+                int nRowsInserted = 0;
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
+                preparedStatement.setString(1, "banana");
+                preparedStatement.setInt(2, 150);
+                nRowsInserted += preparedStatement.executeUpdate();
+
+                preparedStatement.setString(1, "orange");
+                preparedStatement.setInt(2, 154);
+                nRowsInserted += preparedStatement.executeUpdate();
+
+                preparedStatement.setString(1, "apple");
+                preparedStatement.setInt(2, 100);
+                nRowsInserted += preparedStatement.executeUpdate();
+                System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
+
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+
+            }
+            catch (SQLException e)
+            {
+                throw new SQLException("Encountered an error when executing given sql statement.", e);
+            }       
+        }
+        else {
+            System.out.println("Failed to create connection to database.");
+        }
+        System.out.println("Execution finished.");
+    }
+
+	public void loginWindow()  {
+		try{
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("loginView.fxml"));
+			AnchorPane pane = loader.load();
+			Scene scene = new Scene(pane);
+			
+			LoginController controller = loader.getController();
+			controller.setMain(this);
+			
+			Stage stage = new Stage();
+			
+			stage.setTitle("LP Ticket Artist");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void mainWindow()  {
+		try{
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("MainWindowView.fxml"));
+			AnchorPane pane = loader.load();
+			Scene scene = new Scene(pane);
+			
+			Stage stage = new Stage();
+			
+			MainWindowController controller = loader.getController();
+			controller.setMain(this, primaryStage);
+			
+			primaryStage.setTitle("LP Ticket Artist");
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void analyticsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("AnalyticsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		AnalyticsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void validTicketsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("ValidTicketsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		ValidTicketsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void invitationsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("InvitationsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		InvitationsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void packagesWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("PackagesView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		PackagesController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void settingsWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("SettingsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		SettingsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	
+	private ObservableList<Event> eventData = FXCollections.observableArrayList();
+	public ObservableList<Event> getEventData() {return eventData;}
+	
+	public Main() {
+	eventData.add(new Event("1", "Truckfest Original 2018", "A Place full of Trucks!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("2", "LRO Owners International 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("3", "Sywell Classic 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("4", "UB40 at Lincoln Castle 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("5", "Status Quo at Holkham Hall 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("6", "Scottish Land Rover Show 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("7", "Kelmarsh Land Rover Show 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("8", "MCN Bike Show 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+	eventData.add(new Event("9", "Last Night of the Proms 2018", "A Place full of Landies!", "Pebo", "Pedo", "PE112AB", "01260847857", "No ticket refunds"));
+
+	}
+	
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
