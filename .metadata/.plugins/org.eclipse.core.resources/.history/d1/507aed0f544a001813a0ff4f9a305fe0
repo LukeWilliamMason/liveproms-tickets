@@ -54,12 +54,8 @@ public class MainWindowController{
 		eventInfoLabel.setText(event.getEventInfo());
 		
 		String displayTime = event.getEventStartDate();
-		displayTime = displayTime.substring(11, 13) + ":" + displayTime.substring(14, 16);
+		displayTime = displayTime.substring(11, 12);
 		eventStartTimeLabel.setText(displayTime);
-		
-		displayTime = event.getEventEndDate();
-		displayTime = displayTime.substring(11, 13) + ":" + displayTime.substring(14, 16);
-		eventEndTimeLabel.setText(displayTime);
 		
 		
 		String displayDate = event.getEventStartDate();
