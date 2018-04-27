@@ -275,12 +275,12 @@
                                 </rowConstraints>
                                  <children>
                                     <Rectangle arcWidth="5.0" fill="WHITE" height="60.0" strokeType="INSIDE" width="136.0" GridPane.rowIndex="1" />
+                                    <Rectangle arcWidth="5.0" fill="#ee674c" height="40.0" strokeType="INSIDE" width="136.0" />
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="148.0" text="End Date" textFill="WHITE">
                                        <font>
                                           <Font name="Helvetica" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Rectangle arcWidth="5.0" fill="#ee674c" height="40.0" strokeType="INSIDE" width="136.0" />
                                     <Rectangle arcWidth="5.0" fill="WHITE" height="59.0" strokeType="INSIDE" width="136.0" GridPane.rowIndex="2" />
                                     <Label fx:id="eventEndDateLabel" alignment="CENTER" maxHeight="116.0" prefHeight="116.0" prefWidth="135.0" text="00/00/0000" textFill="#1c1c1c" wrapText="true" GridPane.rowIndex="1">
                                        <font>
