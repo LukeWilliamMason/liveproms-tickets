@@ -3,8 +3,6 @@ package application;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import java.sql.*;
 import java.util.Properties;
@@ -62,26 +60,6 @@ public class Datasource   {
         		System.out.println("Couldn't close connection" + e.getMessage());
         	}
         }
+        
 
-        public List<User> queryUsers(){
-        	
-        	try(Statement statement = conn.createStatement();
-        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_USERS)){   		
-        		
-        		List<User> users = new ArrayList<>();        		
-        		while(results.next()){
-        			User user = new User();
-        			user.setId(results.getInt(COLUMN_USER_ID));
-        			user.setUsername(results.getString(COLUMN_USER_USERNAME));
-        			user.setPassword(results.getString(COLUMN_USER_PASSWORD));
-        			users.add(user);
-        		}
-        		
-        		return users;
-        		
-        	} catch(SQLException e) {
-        		System.out.println("Query failed:" + e.getMessage());
-        		return null;     
-        	}
-       }
 }

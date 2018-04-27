@@ -29,21 +29,18 @@ public class LoginController {
 	@FXML
 	public void handleLogin() {
 		
-		Boolean success = false;
+		
 		String userentry = usernameField.getText();
 		String passwordentry = passwordField.getText();
 		Datasource datasource = new Datasource();
 		datasource.open();
 		List<User> users = datasource.queryUsers();
 		for(User user : users){
-		if(user.getUsername().equals(userentry) && user.getPassword().equals(passwordentry)){
-			success = true;
+		if(user.getUsername() == userentry && user.getPassword() == passwordentry){
 			main.mainWindow();
 		}
 		}
-		if(success == false){
-			loginStatusLabel.setText("Invalid Username or Password");
-		}
+		datasource.close();
 	}
 
 	

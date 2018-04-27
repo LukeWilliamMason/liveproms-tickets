@@ -64,9 +64,10 @@ public class Datasource   {
         }
 
         public List<User> queryUsers(){
+   
         	
         	try(Statement statement = conn.createStatement();
-        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_USERS)){   		
+        	ResultSet results = statement.executeQuery("SELECT * FROM" + TABLE_USERS)){   		
         		
         		List<User> users = new ArrayList<>();        		
         		while(results.next()){

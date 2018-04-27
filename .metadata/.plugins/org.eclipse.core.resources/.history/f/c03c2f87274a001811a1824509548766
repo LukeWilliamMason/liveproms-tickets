@@ -1,7 +1,5 @@
 package application;
 
-import java.util.List;
-
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
@@ -29,19 +27,12 @@ public class LoginController {
 	@FXML
 	public void handleLogin() {
 		
-		Boolean success = false;
-		String userentry = usernameField.getText();
-		String passwordentry = passwordField.getText();
-		Datasource datasource = new Datasource();
-		datasource.open();
-		List<User> users = datasource.queryUsers();
-		for(User user : users){
-		if(user.getUsername().equals(userentry) && user.getPassword().equals(passwordentry)){
-			success = true;
+		
+		String user = usernameField.getText();
+		String password = passwordField.getText();
+		if(usernameField.getText().equals("user") && passwordField.getText().equals("pass")) {
 			main.mainWindow();
-		}
-		}
-		if(success == false){
+		} else {
 			loginStatusLabel.setText("Invalid Username or Password");
 		}
 	}

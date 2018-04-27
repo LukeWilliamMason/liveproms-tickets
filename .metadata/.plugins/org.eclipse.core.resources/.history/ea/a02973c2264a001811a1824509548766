@@ -190,6 +190,23 @@ public class Main extends Application {
 	
 	
 	public static void main(String[] args) {
+		Datasource datasource = new Datasource();
+		if(!datasource.open()){
+			System.out.println("Can't open datasource");
+			return;
+		}
+		
+		List<User> users = datasource.queryUsers();
+		if(users == null){
+			System.out.println("No users");
+			return;
+		}
+		
+		for(User user : users){
+		System.out.println("ID =" + user.getId() + "Username = " + user.getUsername());	
+		}
+		
+		datasource.close();
 		launch(args);
 	}
 }

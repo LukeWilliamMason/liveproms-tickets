@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import java.sql.*;
-import java.util.List;
 import java.util.Properties;
 
 
@@ -190,6 +189,12 @@ public class Main extends Application {
 	
 	
 	public static void main(String[] args) {
+		Datasource datasource = new Datasource();
+		if(!datasource.open()){
+			System.out.println("Can't open datasource");
+			return;
+		}
+		datasource.close();
 		launch(args);
 	}
 }
