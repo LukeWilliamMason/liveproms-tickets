@@ -188,44 +188,13 @@ public class Main extends Application {
 	}
 	
 	
-	public static void main(String[] args) throws Exception  {
-	        // Initialize connection variables. 
-	        String host = "livepromotio.mysql.database.azure.com";
-	        String database = "ticket_system";
-	        String user = "lukelive@livepromotio";
-	        String password = "Live1972";
-
-	        Connection connection = null;
-
-	        // Initialize connection object
-	        try
-	        {
-	            String url = "jdbc:mysql://livepromotio.mysql.database.azure.com/ticket_system";
-
-	            // Set connection properties.
-	            Properties properties = new Properties();
-	            properties.setProperty("user", user);
-	            properties.setProperty("password", password);
-	            properties.setProperty("useSSL", "true");
-	            properties.setProperty("verifyServerCertificate", "true");
-	            properties.setProperty("requireSSL", "false");
-
-	            // get connection
-	            connection = DriverManager.getConnection(url, properties);
-	        }
-	        catch (SQLException e)
-	        {
-	            throw new SQLException("Failed to create connection to database.", e);
-	        }
-	        if (connection != null) 
-	        { 
-	            System.out.println("Successfully created connection to database.");
-
-	            // Perform some SQL queries over the connection.           
-	        }
-	        else {
-	            System.out.println("Failed to create connection to database.");
-	        }
+	public static void main(String[] args) {
+		Datasource datasource = new Datasource();
+		if(!datasource.open()){
+			System.out.println("Can't open datasource");
+			return;
+		}
+		datasource.close();
 		launch(args);
 	}
 }
