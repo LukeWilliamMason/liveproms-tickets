@@ -11,25 +11,17 @@ public class Event {
 	private String eventPostcode;
 	private String eventTel;
 	private String eventTC;
-	
-	public Event(String eventID, String eventName, String eventInfo, String eventAddressLineOne, String eventAddressLineTwo,
-			String eventPostcode, String eventTel, String eventTC){
-		this.eventID = eventID;
-		this.eventName = eventName;
-		this.eventInfo = eventInfo;
-		this.eventAddressLineOne = eventAddressLineOne;
-		this.eventAdderssLineTwo = eventAddressLineTwo;
-		this.eventPostcode = eventPostcode;
-		this.eventTel = eventTel;
-		this.eventTC = eventTC;
-	}
+	private String eventStartDate;
+	private String eventEndDate;
 	
 	//getters
 	public String getEventID(){ return eventID; }
 	public String getEventName(){ return eventName; }
 	public String getEventInfo(){ return eventInfo; }
+	public String getEventStartDate(){ return eventStartDate; }
+	public String getEventEndDate(){ return eventEndDate; }
 	public String getEventAddressLineOne(){ return eventAddressLineOne; }
-	public String getEventAdderssLineTwo(){ return eventAdderssLineTwo; }
+	public String getEventAddressLineTwo(){ return eventAdderssLineTwo; }
 	public String getEventPostcode(){ return eventPostcode; }
 	public String getEventTel(){ return eventTel; }
 	public String getEventTC(){ return eventTC; }
@@ -39,10 +31,12 @@ public class Event {
 	public void setEventName(String eventName){ this.eventName = eventName; }
 	public void setEventInfo(String eventInfo){ this.eventInfo = eventInfo; }
 	public void setEventAddressLineOne(String eventAddressLineOne){ this.eventAddressLineOne = eventAddressLineOne; }
-	public void setEventAdderssLineTwo(String eventAdderssLineTwo){ this.eventAdderssLineTwo = eventAdderssLineTwo; }
+	public void setEventAddressLineTwo(String eventAdderssLineTwo){ this.eventAdderssLineTwo = eventAdderssLineTwo; }
 	public void setEventPostcode(String eventPostcode){ this.eventPostcode = eventPostcode; }
 	public void setEventTel(String eventTel){ this.eventTel = eventTel; }
 	public void setEventTC(String eventTC){ this.eventTC = eventTC; }
+	public void setEventStartDate(String eventStartDate){ this.eventStartDate = eventStartDate; }
+	public void setEventEndDate(String eventEndDate){ this.eventEndDate = eventEndDate; }
 	
 	
 	

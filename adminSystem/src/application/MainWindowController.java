@@ -12,19 +12,26 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class MainWindowController {
+public class MainWindowController{
 
 	@FXML TableView<Event> eventView;
 	@FXML TableColumn<Event ,String> eventNameColumn;
 	@FXML Label eventNameLabel;
+	@FXML Label eventAddressLineOneLabel;
+	@FXML Label eventAddressLineTwoLabel;
+	@FXML Label eventPostcodeLabel;
+	@FXML Label eventTelephoneLabel;
+	@FXML Label eventTCLabel;
+	@FXML Label eventInfoLabel;
+	@FXML Label eventStartDateLabel;
+	@FXML Label eventEndDateLabel;
 	
 	private Stage stage;
 	private Main main;
 	
 	public void initialize(){
 		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("eventName"));
-
+		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("EventName"));
 		eventView.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> showTitle(newValue));
 	}
@@ -37,6 +44,20 @@ public class MainWindowController {
 	
 	public void showTitle(Event event){
 		eventNameLabel.setText(event.getEventName());
+		eventAddressLineOneLabel.setText(event.getEventAddressLineOne());
+		eventAddressLineTwoLabel.setText(event.getEventAddressLineTwo());
+		eventPostcodeLabel.setText(event.getEventPostcode());
+		eventTelephoneLabel.setText(event.getEventTel());
+		eventTCLabel.setText(event.getEventTC());
+		eventInfoLabel.setText(event.getEventInfo());
+		
+		String displayDate = event.getEventStartDate();
+		displayDate = displayDate.substring(8,10) + "/" + displayDate.substring(5,7) + "/" + displayDate.substring(0, 4) ;		
+		eventStartDateLabel.setText(displayDate);
+		displayDate = event.getEventEndDate();
+		displayDate = displayDate.substring(8,10) + "/" + displayDate.substring(5,7) + "/" + displayDate.substring(0, 4) ;
+		eventEndDateLabel.setText(displayDate);
+		
 	}
 	
 	@FXML

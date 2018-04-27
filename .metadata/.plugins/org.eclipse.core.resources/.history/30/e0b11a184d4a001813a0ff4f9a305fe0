@@ -1,0 +1,93 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class MainWindowController{
+
+	@FXML TableView<Event> eventView;
+	@FXML TableColumn<Event ,String> eventNameColumn;
+	@FXML Label eventNameLabel;
+	@FXML Label eventAddressLineOneLabel;
+	@FXML Label eventAddressLineTwoLabel;
+	@FXML Label eventPostcodeLabel;
+	@FXML Label eventTelephoneLabel;
+	@FXML Label eventTCLabel;
+	@FXML Label eventInfoLabel;
+	@FXML Label eventStartDateLabel;
+	@FXML Label eventEndDateLabel;
+	
+	private Stage stage;
+	private Main main;
+	
+	public void initialize(){
+		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("EventName"));
+		eventView.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> showTitle(newValue));
+	}
+	
+	public void setMain(Main main, Stage stage){
+		this.main = main;
+		this.stage = stage;
+		eventView.setItems(main.getEventData());
+	}
+	
+	public void showTitle(Event event){
+		eventNameLabel.setText(event.getEventName());
+		eventAddressLineOneLabel.setText(event.getEventAddressLineOne());
+		eventAddressLineTwoLabel.setText(event.getEventAddressLineTwo());
+		eventPostcodeLabel.setText(event.getEventPostcode());
+		eventTelephoneLabel.setText(event.getEventTel());
+		eventTCLabel.setText(event.getEventTC());
+		eventInfoLabel.setText(event.getEventInfo());
+		//eventStartDateLabel.setText(event.getEventStartDate());
+		//eventEndDateLabel.setText(event.getEventEndDate());
+		
+	}
+	
+	@FXML
+	public void handleNewEvent() {
+		
+	}
+	
+	@FXML
+	public void handleDashboard() throws IOException {
+		main.mainWindow();
+	}
+	
+	@FXML
+	public void handleAnalytics() throws IOException {
+		main.analyticsWindow();
+	}
+	
+	@FXML
+	public void handleValidTickets() throws IOException{
+		main.validTicketsWindow();
+	}
+	
+	@FXML
+	public void handleInvitations() throws IOException{
+		main.invitationsWindow();
+	}
+	
+	@FXML
+	public void handlePackages() {
+		main.packagesWindow();
+	}
+	
+	@FXML
+	public void handleSettings() {
+		main.settingsWindow();
+	}
+	
+}

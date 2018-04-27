@@ -16,22 +16,21 @@ public class LoginController {
 
 	
 	@FXML private Label loginStatusLabel;
-	@FXML private JFXTextField usernameField;
+	@FXML public JFXTextField usernameField;
 	@FXML private JFXPasswordField passwordField;
 	
 	private Stage stage;
 	private Main main;
 	
 	public void setMain(Main main){
-		this.main = main;
+		this.main = main;	
 	}
 	
 	@FXML
 	public void handleLogin() {
-		
-		Boolean success = false;
 		String userentry = usernameField.getText();
 		String passwordentry = passwordField.getText();
+		Boolean success = false;
 		Datasource datasource = new Datasource();
 		datasource.open();
 		List<User> users = datasource.queryUsers();
@@ -39,6 +38,7 @@ public class LoginController {
 		if(user.getUsername().equals(userentry) && user.getPassword().equals(passwordentry)){
 			success = true;
 			main.mainWindow();
+			datasource.close();
 		}
 		}
 		if(success == false){

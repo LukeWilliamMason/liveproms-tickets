@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -30,6 +34,7 @@ public class Datasource   {
         public static final String COLUMN_EVENT_POSTCODE = "EventPostcode";
         public static final String COLUMN_EVENT_TEL = "EventTel";
         public static final String COLUMN_EVENT_TC = "EventTC";
+        public static final String COLUMN_EVENT_INFO = "EventInfo";
         
         private Connection conn;
         
@@ -62,6 +67,35 @@ public class Datasource   {
         		System.out.println("Couldn't close connection" + e.getMessage());
         	}
         }
+        
+        public ObservableList<Event> queryEvents(){
+        	
+        	try(Statement statement = conn.createStatement();
+        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_EVENTS)){   		
+        		
+        		ObservableList<Event> events = FXCollections.observableArrayList();        		
+        		while(results.next()){
+        			Event event = new Event();
+        			event.setEventID(results.getString(COLUMN_EVENT_ID));
+        			event.setEventName(results.getString(COLUMN_EVENT_NAME));
+        			event.setEventStartDate(results.getString(COLUMN_EVENT_STARTDATE));
+        			event.setEventEndDate(results.getString(COLUMN_EVENT_ENDDATE));
+        			event.setEventAddressLineOne(results.getString(COLUMN_EVENT_ADDRESSLINEONE));
+           			event.setEventAddressLineTwo(results.getString(COLUMN_EVENT_ADDRESSLINETWO));
+           			event.setEventPostcode(results.getString(COLUMN_EVENT_POSTCODE));
+           			event.setEventTel(results.getString(COLUMN_EVENT_TEL));
+           			event.setEventTC(results.getString(COLUMN_EVENT_TC));
+           			event.setEventInfo(results.getString(COLUMN_EVENT_INFO));
+        			events.add(event);
+        		}
+        		
+        		return events;
+        		
+        	} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage());
+        		return null;     
+        	}
+       }
 
         public List<User> queryUsers(){
         	
