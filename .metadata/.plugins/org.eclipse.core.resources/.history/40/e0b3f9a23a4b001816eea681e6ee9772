@@ -34,7 +34,6 @@ public class LoginController {
 		Datasource datasource = new Datasource();
 		if(!datasource.open()){
 			loginStatusLabel.setText("Failed to connect.");
-			return;
 		}
 		List<User> users = datasource.queryUsers();
 		for(User user : users){

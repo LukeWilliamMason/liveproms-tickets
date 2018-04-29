@@ -33,8 +33,7 @@ public class LoginController {
 		Boolean success = false;
 		Datasource datasource = new Datasource();
 		if(!datasource.open()){
-			loginStatusLabel.setText("Failed to connect.");
-			return;
+			loginStatusLabel.setText("Failed to connect. Check your internet connection.");
 		}
 		List<User> users = datasource.queryUsers();
 		for(User user : users){

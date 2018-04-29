@@ -172,10 +172,13 @@ public class Main extends Application {
 		}
 	
 	
-	
+	public ObservableList<Event> eventData = FXCollections.observableArrayList();
+	public ObservableList<Event> getEventData() {return eventData;}
 	
 	public Main() {
-
+		Datasource datasource = new Datasource();
+		datasource.open();
+		eventData = datasource.queryEvents();
 	}
 	
 	

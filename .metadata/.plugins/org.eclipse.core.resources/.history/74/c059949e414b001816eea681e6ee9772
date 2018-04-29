@@ -1,6 +1,9 @@
-.panel{
-	-fx-background-color: #FFFFFF;
+.parent{
+	-fx-background-color: #F4F4F4;
 	}
+.mainbackgroundcolor{
+	-fx-background-color: #F4F4F4;
+}
 .sidebar{
 	-fx-background-color: #FFFFFF;
 }

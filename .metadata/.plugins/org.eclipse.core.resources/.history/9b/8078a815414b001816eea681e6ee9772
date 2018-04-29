@@ -55,7 +55,7 @@ public class MainWindowController{
 	public void showTitle(Event event){
 		eventNameLabel.setText(event.getEventName());
 		eventAddressLineOneLabel.setText(event.getEventAddressLineOne());
-		eventAddressLineTwoLabel.setText(event.getEventAddressLineTwo() + " , " + event.getEventPostcode());
+		eventAddressLineTwoLabel.setText(event.getEventAddressLineTwo() + "," + event.getEventPostcode());
 		eventTelephoneLabel.setText(event.getEventTel());
 		eventTCLabel.setText(event.getEventTC());
 		eventInfoLabel.setText(event.getEventInfo());

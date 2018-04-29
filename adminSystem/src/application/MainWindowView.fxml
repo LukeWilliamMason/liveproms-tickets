@@ -185,6 +185,11 @@
                               <DropShadow color="#e5e5e5" />
                            </effect>
                         </Rectangle>
+                        <Rectangle arcWidth="5.0" fill="#fcfcfc" height="12.0" strokeType="INSIDE" strokeWidth="0.0" width="183.0" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="45.0" left="1.0" />
+                           </GridPane.margin>
+                        </Rectangle>
                         <Line endX="184.0" stroke="#707070" strokeWidth="0.25">
                            <GridPane.margin>
                               <Insets bottom="80.0" />
@@ -217,7 +222,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="106.0" text="27/10/2018" textFill="#1c1c1c">
+                        <Label fx:id="eventStartDateLabel" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="106.0" text="27/10/2018" textFill="#1c1c1c">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
@@ -225,7 +230,7 @@
                               <Insets bottom="40.0" left="60.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="104.0" text="09:00" textFill="#1c1c1c">
+                        <Label fx:id="eventStartTimeLabel" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="104.0" text="09:00" textFill="#1c1c1c">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
@@ -233,7 +238,7 @@
                               <Insets left="105.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="106.0" text="29/10/2018" textFill="#1c1c1c">
+                        <Label fx:id="eventEndDateLabel" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="106.0" text="29/10/2018" textFill="#1c1c1c">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
@@ -241,7 +246,7 @@
                               <Insets left="60.0" top="75.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="104.0" text="17:30" textFill="#1c1c1c">
+                        <Label fx:id="eventEndTimeLabel" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="104.0" text="17:30" textFill="#1c1c1c">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
@@ -259,7 +264,7 @@
                               <Insets bottom="17.0" left="13.0" />
                            </GridPane.margin>
                         </MaterialDesignIconView>
-                        <Label prefHeight="52.0" prefWidth="70.0" text="Start" textFill="#707070">
+                        <Label prefHeight="52.0" prefWidth="70.0" text="Start" textFill="#ff1d1d">
                            <font>
                               <Font name="Helvetica Light" size="14.0" />
                            </font>
@@ -270,7 +275,7 @@
                               <DropShadow color="#e8e8e8" />
                            </effect>
                         </Label>
-                        <Label prefHeight="52.0" prefWidth="70.0" text="End" textFill="#707070">
+                        <Label prefHeight="52.0" prefWidth="70.0" text="End" textFill="#ff1d1d">
                            <font>
                               <Font name="Helvetica Light" size="14.0" />
                            </font>
@@ -300,14 +305,14 @@
                               <Insets bottom="105.0" />
                            </GridPane.margin>
                         </Label>
-                        <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="390.0" minHeight="-Infinity" prefHeight="124.0" prefWidth="370.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="sidebar-btns" vbarPolicy="ALWAYS" GridPane.columnIndex="2">
+                        <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="390.0" minHeight="-Infinity" prefHeight="124.0" prefWidth="370.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="mainbackgroundcolor" vbarPolicy="ALWAYS" GridPane.columnIndex="2">
                            <content>
-                              <Label alignment="TOP_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="363.0" style="-fx-background-color: white;" text="Lorem ipsum dolor sit amet, tale wisi etiam te mel. Ignota possit detraxit vix ei, in lobortis appellantur eum, mea esse fuisset voluptaria ei. Quem sententiae cu mel. In vis adhuc periculis, ne vix albucius adipiscing. Ne wisi aperiam omnesque cum. Eam id regione probatus, choro postea vituperata est ex, vis doming meliore sensibus ut." textFill="#1c1c1c" wrapText="true">
+                              <Label fx:id="eventTCLabel" alignment="TOP_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="363.0" style="-fx-background-color: white;" text="Lorem ipsum dolor sit amet, tale wisi etiam te mel. Ignota possit detraxit vix ei, in lobortis appellantur eum, mea esse fuisset voluptaria ei. Quem sententiae cu mel. In vis adhuc periculis, ne vix albucius adipiscing. Ne wisi aperiam omnesque cum. Eam id regione probatus, choro postea vituperata est ex, vis doming meliore sensibus ut." textFill="#1c1c1c" wrapText="true">
                                  <font>
-                                    <Font name="Helvetica Light" size="16.0" />
+                                    <Font name="Helvetica Light" size="14.0" />
                                  </font>
                                  <padding>
-                                    <Insets bottom="10.0" top="10.0" />
+                                    <Insets bottom="200.0" left="5.0" top="10.0" />
                                  </padding>
                               </Label>
                            </content>
@@ -319,6 +324,79 @@
                            <GridPane.margin>
                               <Insets bottom="80.0" />
                            </GridPane.margin></Line>
+                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="184.0" text="£480" textFill="#9dcd5a" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="105.0" top="40.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="184.0" text="£2,386" textFill="#9dcd5a" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="105.0" top="80.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="184.0" text="£12,493" textFill="#9dcd5a" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="105.0" top="120.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0" prefWidth="100.0" text="This Week:" textFill="#1c1c1c" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets top="80.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0" prefWidth="101.0" text="Today:" textFill="#1c1c1c" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets top="40.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label maxHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0" prefWidth="98.0" text="This Month:" textFill="#1c1c1c" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets top="120.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="184.0" text="£38,000" textFill="#9dcd5a" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="47.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0" prefWidth="186.0" text="All Time" textFill="#1c1c1c" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Helvetica Light" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" />
+                           </GridPane.margin>
+                        </Label>
                      </children>
                   </GridPane>
                   <LineChart maxWidth="761.0" prefWidth="0.0" style="-fx-border-color: #727272; -fx-border-width: 0.25px; -fx-background-color: #ffffff; -fx-border-radius: 2.5;">
@@ -359,7 +437,7 @@
                         <DropShadow color="#ebebeb" />
                      </effect>
                   </Label>
-                  <Label prefHeight="40.0" prefWidth="308.0" text="East of England Showground" textFill="#1c1c1c" GridPane.rowIndex="1">
+                  <Label fx:id="eventAddressLineOneLabel" prefHeight="40.0" prefWidth="308.0" text="East of England Showground" textFill="#1c1c1c" GridPane.rowIndex="1">
                      <font>
                         <Font name="Helvetica Light" size="16.0" />
                      </font>
@@ -367,7 +445,7 @@
                         <Insets left="60.0" top="85.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="40.0" prefWidth="301.0" text="Oundle Road, PE228BD, Brighton" textFill="#1c1c1c" GridPane.rowIndex="1">
+                  <Label fx:id="eventAddressLineTwoLabel" prefHeight="40.0" prefWidth="301.0" text="Oundle Road, PE228BD, Brighton" textFill="#1c1c1c" GridPane.rowIndex="1">
                      <font>
                         <Font name="Helvetica Light" size="14.0" />
                      </font>
@@ -375,7 +453,7 @@
                         <Insets bottom="25.0" left="60.0" top="145.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="40.0" prefWidth="327.0" text="0125003893" textFill="#1c1c1c" GridPane.rowIndex="1">
+                  <Label fx:id="eventTelephoneLabel" prefHeight="40.0" prefWidth="327.0" text="0125003893" textFill="#1c1c1c" GridPane.rowIndex="1">
                      <font>
                         <Font name="Helvetica Light" size="16.0" />
                      </font>
@@ -383,7 +461,7 @@
                         <Insets bottom="50.0" left="60.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="40.0" prefWidth="327.0" text="email@email.com" textFill="#1c1c1c" GridPane.rowIndex="1">
+                  <Label fx:id="eventEmailLabel" prefHeight="40.0" prefWidth="327.0" text="email@email.com" textFill="#1c1c1c" GridPane.rowIndex="1">
                      <font>
                         <Font name="Helvetica Light" size="16.0" />
                      </font>
@@ -433,17 +511,17 @@
                         <Insets bottom="95.0" left="382.0" />
                      </GridPane.margin>
                   </Line>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="380.0" minHeight="-Infinity" prefHeight="130.0" prefWidth="370.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="sidebar-btns" vbarPolicy="ALWAYS" GridPane.rowIndex="1">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="380.0" minHeight="-Infinity" prefHeight="130.0" prefWidth="370.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="mainbackgroundcolor" vbarPolicy="ALWAYS" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="387.0" top="33.0" />
                      </GridPane.margin>
                      <content>
-                        <Label alignment="TOP_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="357.0" style="-fx-background-color: white;" text="Lorem ipsum dolor sit amet, tale wisi etiam te mel. Ignota possit detraxit vix ei, in lobortis appellantur eum, mea esse fuisset voluptaria ei. Quem sententiae cu mel. In vis adhuc periculis, ne vix albucius adipiscing. Ne wisi aperiam omnesque cum. Eam id regione probatus, choro postea vituperata est ex, vis doming meliore sensibus ut." textFill="#1c1c1c" wrapText="true">
+                        <Label fx:id="eventInfoLabel" alignment="TOP_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="357.0" style="-fx-background-color: white;" text="Lorem ipsum dolor sit amet, tale wisi etiam te mel. Ignota possit detraxit vix ei, in lobortis appellantur eum, mea esse fuisset voluptaria ei. Quem sententiae cu mel. In vis adhuc periculis, ne vix albucius adipiscing. Ne wisi aperiam omnesque cum. Eam id regione probatus, choro postea vituperata est ex, vis doming meliore sensibus ut." textFill="#1c1c1c" wrapText="true">
                            <font>
-                              <Font name="Helvetica Light" size="16.0" />
+                              <Font name="Helvetica Light" size="14.0" />
                            </font>
                            <padding>
-                              <Insets bottom="10.0" top="10.0" />
+                              <Insets bottom="200.0" top="10.0" />
                            </padding>
                         </Label>
                      </content>

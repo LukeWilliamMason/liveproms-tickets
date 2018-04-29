@@ -2,8 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -32,14 +30,8 @@ public class MainWindowController{
 	
 	private Stage stage;
 	private Main main;
-	public ObservableList<Event> eventData = FXCollections.observableArrayList();
-	public ObservableList<Event> getEventData() {return eventData;}
 	
 	public void initialize(){
-		Datasource datasource = new Datasource();
-		
-		datasource.open();
-		eventData = datasource.queryEvents();
 		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("EventName"));
 		eventView.getSelectionModel().selectedItemProperty().addListener(
@@ -49,13 +41,14 @@ public class MainWindowController{
 	public void setMain(Main main, Stage stage){
 		this.main = main;
 		this.stage = stage;
-		eventView.setItems(getEventData());
+		eventView.setItems(main.getEventData());
 	}
 	
 	public void showTitle(Event event){
 		eventNameLabel.setText(event.getEventName());
 		eventAddressLineOneLabel.setText(event.getEventAddressLineOne());
-		eventAddressLineTwoLabel.setText(event.getEventAddressLineTwo() + " , " + event.getEventPostcode());
+		eventAddressLineTwoLabel.setText(event.getEventAddressLineTwo());
+		eventPostcodeLabel.setText(event.getEventPostcode());
 		eventTelephoneLabel.setText(event.getEventTel());
 		eventTCLabel.setText(event.getEventTC());
 		eventInfoLabel.setText(event.getEventInfo());
