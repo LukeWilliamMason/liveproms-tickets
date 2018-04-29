@@ -40,6 +40,19 @@ public class Datasource   {
         public static final String COLUMN_VENUE_TEL = "venueTelephone";
         public static final String COLUMN_VENUE_EMAIL = "venueEmail";
         
+        public static final String TABLE_TICKETS = "tickets";
+        public static final String COLUMN_TICKET_NAME = "ticketName";
+        public static final String COLUMN_TICKET_PRICE = "ticketPrice";
+        public static final String COLUMN_TICKET_QUANTITY = "ticketQuantity";
+        public static final String COLUMN_TICKET_INFO = "ticketInfo";
+        
+        public static final String TABLE_ORDERS = "orders";
+        public static final String COLUMN_ORDER_ID = "orderID";
+        public static final String COLUMN_ORDER_DATE = "orderDate";
+        public static final String COLUMN_ORDER_VALID = "orderValid";
+        public static final String COLUMN_ORDER_INVITATION = "invitation";
+        
+        
         private Connection conn;
         
         public boolean open(){
@@ -124,4 +137,48 @@ public class Datasource   {
         		return null;     
         	}
        }
+        
+        public List<Ticket> queryTicket(){
+        	try(Statement statement = conn.createStatement();
+        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_TICKETS)){
+        		
+        		List<Ticket> tickets = new ArrayList<>();
+        		while(results.next()){
+        			Ticket ticket = new Ticket();
+        			ticket.setEventName(results.getString(COLUMN_EVENT_NAME));
+        			ticket.setTicketInfo(results.getString(COLUMN_TICKET_INFO));
+        			ticket.setTicketName(results.getString(COLUMN_TICKET_NAME));
+        			ticket.setTicketPrice(results.getString(COLUMN_TICKET_PRICE));
+        			ticket.setTicketQuantity(results.getString(COLUMN_TICKET_QUANTITY));
+        			tickets.add(ticket);
+        		}
+        		
+        		return tickets;
+        	} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage());
+        		return null;       	
+        }
+        }
+        
+        public List<Order> queryOrders(){
+        	try(Statement statement = conn.createStatement();
+        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_ORDERS)){
+        		
+        		List<Order> orders = new ArrayList<>();
+        		while(results.next()){
+        			Order order = new Order();
+        			order.setOrderID(results.getString(COLUMN_ORDER_ID));
+        			order.setTicketName(results.getString(COLUMN_TICKET_NAME));
+        			order.setOrderDate(results.getString(COLUMN_ORDER_DATE));
+        			order.setOrderValid(results.getString(COLUMN_ORDER_VALID));
+        			order.setInvitation(results.getString(COLUMN_ORDER_INVITATION));
+        			orders.add(order);
+        		}
+        		
+        		return orders;
+        	} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage());
+        		return null;       	
+        }
+        }
 }

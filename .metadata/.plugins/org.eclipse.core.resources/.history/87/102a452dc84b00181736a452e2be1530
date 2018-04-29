@@ -1,0 +1,25 @@
+package application;
+
+public class Tickets {
+
+	private String eventName;
+	private String ticketName;
+	private double ticketPrice;
+	private int ticketQuantity;
+	private String ticketInfo;
+	
+	//getters
+	public String getEventName(){ return eventName; }
+	public String getTicketName(){ return ticketName; }
+	public double grtTicketPrice(){ return ticketPrice; }
+	public int getTicketQuantity(){ return ticketQuantity; }
+	public String getTicketInfo(){ return ticketInfo; }
+	
+	//setters
+	public void setEventName(String eventName){ this.eventName = eventName; }
+	public void setTicketName(String ticketName){ this.ticketName = ticketName; }
+	public void setTicketPrice(double ticketPrice){this.ticketPrice = ticketPrice; }
+	public void setTicketQuantity(int ticketQuantity){ this.ticketQuantity = ticketQuantity; }
+	public void setTicketInfo(String ticketInfo){ this.ticketInfo = ticketInfo; }
+	
+}

@@ -56,7 +56,18 @@ public class MainWindowController{
 	public void showTitle(Event event){
 		eventNameLabel.setText(event.getEventName());
 		eventAddressLineOneLabel.setText(event.getVenueName());
-		eventAddressLineTwoLabel.setText(event.getVenueAddressLineOne() + event.getVenueAddressLineTwo() + event.getVenuePostcode()+ event.getVenueTownCity());
+		
+		String eventAddress = "";
+		
+		if(event.getVenueAddressLineOne() != null)
+		{
+			eventAddress += event.getVenueAddressLineOne() + " ";
+		}
+		if(event.getVenueAddressLineTwo() != null){
+			eventAddress+= event.getVenueAddressLineTwo() + " ";
+		}
+		
+		eventAddressLineTwoLabel.setText( eventAddress + event.getVenuePostcode()+ " " + event.getVenueTownCity());
 		eventTelephoneLabel.setText(event.getVenueTel());
 		eventTCLabel.setText(event.getEventTC());
 		eventInfoLabel.setText(event.getEventInfo());
