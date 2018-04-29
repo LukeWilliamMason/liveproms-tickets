@@ -1,42 +1,30 @@
 package application;
 
 
-public class Event {
+public class Event extends Venue {
 
-	private String eventID;
 	private String eventName;
 	private String eventInfo;
-	private String eventAddressLineOne;
-	private String eventAdderssLineTwo;
-	private String eventPostcode;
-	private String eventTel;
 	private String eventTC;
-	private String eventStartDate;
-	private String eventEndDate;
+	private String eventStartDateTime;
+	private String eventEndDateTime;
+	private String eventCreated;
 	
 	//getters
-	public String getEventID(){ return eventID; }
 	public String getEventName(){ return eventName; }
 	public String getEventInfo(){ return eventInfo; }
-	public String getEventStartDate(){ return eventStartDate; }
-	public String getEventEndDate(){ return eventEndDate; }
-	public String getEventAddressLineOne(){ return eventAddressLineOne; }
-	public String getEventAddressLineTwo(){ return eventAdderssLineTwo; }
-	public String getEventPostcode(){ return eventPostcode; }
-	public String getEventTel(){ return eventTel; }
+	public String getEventStartDateTime(){ return eventStartDateTime; }
+	public String getEventEndDateTime(){ return eventEndDateTime; }
 	public String getEventTC(){ return eventTC; }
+	public String getEventCreated(){ return eventCreated; };
 	
 	//setters
-	public void setEventID(String eventID){ this.eventID = eventID; }
 	public void setEventName(String eventName){ this.eventName = eventName; }
 	public void setEventInfo(String eventInfo){ this.eventInfo = eventInfo; }
-	public void setEventAddressLineOne(String eventAddressLineOne){ this.eventAddressLineOne = eventAddressLineOne; }
-	public void setEventAddressLineTwo(String eventAdderssLineTwo){ this.eventAdderssLineTwo = eventAdderssLineTwo; }
-	public void setEventPostcode(String eventPostcode){ this.eventPostcode = eventPostcode; }
-	public void setEventTel(String eventTel){ this.eventTel = eventTel; }
 	public void setEventTC(String eventTC){ this.eventTC = eventTC; }
-	public void setEventStartDate(String eventStartDate){ this.eventStartDate = eventStartDate; }
-	public void setEventEndDate(String eventEndDate){ this.eventEndDate = eventEndDate; }
+	public void setEventStartDateTime(String eventStartDateTime){ this.eventStartDateTime = eventStartDateTime; }
+	public void setEventEndDateTime(String eventEndDateTime){ this.eventEndDateTime = eventEndDateTime; }
+	public void setEventCreated(String eventCreated){ this.eventCreated = eventCreated; }
 	
 	
 	

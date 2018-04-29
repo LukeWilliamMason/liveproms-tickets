@@ -20,21 +20,25 @@ public class Datasource   {
         public static final String password = "Live1972";
         
         public static final String TABLE_USERS = "users";
-        public static final String COLUMN_USER_ID = "id";
         public static final String COLUMN_USER_USERNAME = "username";
         public static final String COLUMN_USER_PASSWORD = "password";
         
         public static final String TABLE_EVENTS = "events";
-        public static final String COLUMN_EVENT_ID = "EventID";
-        public static final String COLUMN_EVENT_NAME = "EventName";
-        public static final String COLUMN_EVENT_STARTDATE = "EventStartDate";
-        public static final String COLUMN_EVENT_ENDDATE = "EventEndDate";
-        public static final String COLUMN_EVENT_ADDRESSLINEONE = "EventAddressLineOne";
-        public static final String COLUMN_EVENT_ADDRESSLINETWO = "EventAddressLineTwo";        
-        public static final String COLUMN_EVENT_POSTCODE = "EventPostcode";
-        public static final String COLUMN_EVENT_TEL = "EventTel";
-        public static final String COLUMN_EVENT_TC = "EventTC";
-        public static final String COLUMN_EVENT_INFO = "EventInfo";
+        public static final String COLUMN_EVENT_NAME = "eventName";
+        public static final String COLUMN_EVENT_STARTDATETIME = "eventStartDateTime";
+        public static final String COLUMN_EVENT_ENDDATETIME = "eventEndDateTime";
+        public static final String COLUMN_EVENT_CREATED = "eventCreated";
+        public static final String COLUMN_EVENT_INFO = "eventInfo";
+        public static final String COLUMN_EVENT_TC = "eventTC";
+        
+        public static final String TABLE_VENUES = "venues";
+        public static final String COLUMN_VENUE_NAME = "venueName";
+        public static final String COLUMN_VENUE_ADDRESSLINEONE = "venueAddressLineOne";
+        public static final String COLUMN_VENUE_ADDRESSLINETWO = "venueAddressLineTwo";        
+        public static final String COLUMN_VENUE_POSTCODE = "venuePostcode";
+        public static final String COLUMN_VENUE_TOWNCITY = "venueTownCity";
+        public static final String COLUMN_VENUE_TEL = "venueTelephone";
+        public static final String COLUMN_VENUE_EMAIL = "venueEmail";
         
         private Connection conn;
         
@@ -71,19 +75,22 @@ public class Datasource   {
         public ObservableList<Event> queryEvents(){
         	
         	try(Statement statement = conn.createStatement();
-        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_EVENTS)){   		
+        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_EVENTS + 
+        			" INNER JOIN " + TABLE_VENUES + " WHERE " + TABLE_EVENTS + "." + COLUMN_VENUE_NAME + " = " + TABLE_VENUES + "." + COLUMN_VENUE_NAME)){   		
         		
         		ObservableList<Event> events = FXCollections.observableArrayList();        		
         		while(results.next()){
         			Event event = new Event();
-        			event.setEventID(results.getString(COLUMN_EVENT_ID));
         			event.setEventName(results.getString(COLUMN_EVENT_NAME));
-        			event.setEventStartDate(results.getString(COLUMN_EVENT_STARTDATE));
-        			event.setEventEndDate(results.getString(COLUMN_EVENT_ENDDATE));
-        			event.setEventAddressLineOne(results.getString(COLUMN_EVENT_ADDRESSLINEONE));
-           			event.setEventAddressLineTwo(results.getString(COLUMN_EVENT_ADDRESSLINETWO));
-           			event.setEventPostcode(results.getString(COLUMN_EVENT_POSTCODE));
-           			event.setEventTel(results.getString(COLUMN_EVENT_TEL));
+        			event.setEventStartDateTime(results.getString(COLUMN_EVENT_STARTDATETIME));
+        			event.setEventEndDateTime(results.getString(COLUMN_EVENT_ENDDATETIME));
+        			event.setVenueName(results.getString(COLUMN_VENUE_NAME));
+        			event.setVenueAddressLineOne(results.getString(COLUMN_VENUE_ADDRESSLINEONE));
+           			event.setVenueAddressLineTwo(results.getString(COLUMN_VENUE_ADDRESSLINETWO));
+           			event.setVenueTownCity(results.getString(COLUMN_VENUE_TOWNCITY));
+           			event.setVenuePostcode(results.getString(COLUMN_VENUE_POSTCODE));
+           			event.setVenueTel(results.getString(COLUMN_VENUE_TEL));
+           			event.setVenueEmail(results.getString(COLUMN_VENUE_EMAIL));
            			event.setEventTC(results.getString(COLUMN_EVENT_TC));
            			event.setEventInfo(results.getString(COLUMN_EVENT_INFO));
         			events.add(event);
@@ -105,7 +112,6 @@ public class Datasource   {
         		List<User> users = new ArrayList<>();        		
         		while(results.next()){
         			User user = new User();
-        			user.setId(results.getInt(COLUMN_USER_ID));
         			user.setUsername(results.getString(COLUMN_USER_USERNAME));
         			user.setPassword(results.getString(COLUMN_USER_PASSWORD));
         			users.add(user);
