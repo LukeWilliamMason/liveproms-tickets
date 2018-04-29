@@ -33,9 +33,8 @@ public class MainWindowController{
 	
 	private Stage stage;
 	private Main main;
-	
 	public ObservableList<Event> eventData = FXCollections.observableArrayList();
-	public ObservableList<Event> getEventData() { return eventData; }
+	public ObservableList<Event> getEventData() {return eventData;}
 	
 	public void initialize(){
 		Datasource datasource = new Datasource();

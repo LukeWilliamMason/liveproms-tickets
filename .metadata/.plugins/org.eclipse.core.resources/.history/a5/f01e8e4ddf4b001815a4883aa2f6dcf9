@@ -51,7 +51,6 @@ public class MainWindowController{
 	public void setMain(Main main, Stage stage){
 		this.main = main;
 		this.stage = stage;
-		eventView.setItems(getEventData());
 	}
 	
 	public void showTitle(Event event){

@@ -173,7 +173,6 @@ public class Datasource   {
         			order.setOrderDate(results.getString(COLUMN_ORDER_DATE));
         			order.setOrderValid(results.getString(COLUMN_ORDER_VALID));
         			order.setInvitation(results.getString(COLUMN_ORDER_INVITATION));
-        			order.setOrderEmail(results.getString(COLUMN_ORDER_EMAIL));
         			orders.add(order);
         		}
         		

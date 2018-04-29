@@ -7,7 +7,6 @@ public class Order {
 	private String orderDate;
 	private String orderValid;
 	private String invitation;
-	private String orderEmail;
 	
 	//getters
 	public String getOrderID(){ return orderID; }
@@ -15,7 +14,6 @@ public class Order {
 	public String getOrderDate(){ return orderDate; }
 	public String getOrderValid(){ return orderValid; }
 	public String getOrderInvitation(){ return invitation; }
-	public String getOrderEmail(){ return orderEmail; }
 	
 	//setters
 	public void setOrderID(String orderID){ this.orderID = orderID; }
@@ -23,6 +21,5 @@ public class Order {
 	public void setOrderDate(String orderDate){this.orderDate = orderDate; }
 	public void setOrderValid(String orderValid){ this.orderValid = orderValid; }
 	public void setInvitation(String invitation){ this.invitation = invitation; }
-	public void setOrderEmail(String orderEmail){ this.orderEmail = orderEmail; }
 	
 }

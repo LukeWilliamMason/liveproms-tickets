@@ -8,18 +8,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ValidTicketsController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ValidTicketsController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css">
          <left>
@@ -60,25 +65,21 @@
                      <children>
                         <HBox>
                            <children>
-                              <Button fx:id="dashButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleDashboard" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
+                              <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleDashboard" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
                            </children>
                         </HBox>
+                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                         <HBox>
                            <children>
-                              <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="205.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#1c1c1c">
+                              <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="206.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#1c1c1c">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -86,17 +87,17 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
                            </children>
                         </HBox>
-                        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleInvitations" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Invitations" textFill="#727272">
+                        <Button fx:id="invitationsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleInvitations" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Invitations" textFill="#727272">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handlePackages" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
+                        <Button fx:id="packagesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handlePackages" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
+                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
                      </children>
                   </VBox>
                   <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
@@ -126,23 +127,21 @@
                         <Image url="@../../Images/Live%20Promotions.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="eventNameLabel" prefHeight="68.0" prefWidth="738.0" text="Valid Tickets" textFill="#70707069">
+                  <Label fx:id="eventNameLabel" alignment="CENTER" prefHeight="68.0" prefWidth="849.0" text="Tickets" textFill="#008ab8" wrapText="true">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Helvetica" size="24.0" />
+                        <Font name="Helvetica Light" size="40.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="loginNameLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="200.0" text="Jodie Mason" textAlignment="RIGHT" textFill="#707070">
-                     <font>
-                        <Font name="Helvetica" size="14.0" />
-                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow color="WHITE" />
+                     </effect>
                   </Label>
                   <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" styleClass="sidebar-btns" textAlignment="RIGHT">
-                     <graphic>
-                        <MaterialDesignIconView fx:id="logoutButton" fill="#707070" glyphName="POWER" scaleX="2.0" scaleY="2.0" />
-                     </graphic>
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -150,6 +149,85 @@
                </children>
             </HBox>
          </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="508.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="508.0" minHeight="10.0" prefHeight="383.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="318.5907287597656" minHeight="0.0" prefHeight="294.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="160.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.25" width="376.0" GridPane.rowIndex="2">
+                     <effect>
+                        <DropShadow color="#e5e5e5" />
+                     </effect>
+                  </Rectangle>
+                  <Line endX="375.0" stroke="#707070" strokeWidth="0.25" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="95.0" />
+                     </GridPane.margin>
+                  </Line>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="357.0" text="Tickets" textFill="#727272" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Helvetica Light" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="125.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <DropShadow color="#ebebeb" />
+                     </effect>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="160.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.25" width="381.0" GridPane.rowIndex="2">
+                     <effect>
+                        <DropShadow color="#e5e5e5" />
+                     </effect>
+                     <GridPane.margin>
+                        <Insets left="382.0" />
+                     </GridPane.margin>
+                  </Rectangle>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="357.0" text="Invitations" textFill="#727272" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Helvetica Light" size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#ebebeb" />
+                     </effect>
+                     <GridPane.margin>
+                        <Insets bottom="125.0" left="390.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Line endX="380.0" stroke="#707070" strokeWidth="0.25" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="95.0" left="382.0" />
+                     </GridPane.margin>
+                  </Line>
+                  <TableView prefHeight="314.0" prefWidth="764.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 2.5; -fx-border-color: #707070; -fx-border-width: 0.25;" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn prefWidth="120.0" text="Ticket Number" />
+                      <TableColumn prefWidth="240.0" text="Ticket Type" />
+                        <TableColumn prefWidth="231.0" text="Customer Email" />
+                        <TableColumn minWidth="9.0" prefWidth="105.0" text="Order Date" />
+                        <TableColumn minWidth="1.0" prefWidth="66.0" text="Valid" />
+                    </columns>
+                  </TableView>
+                  <TextField promptText="Search...">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </BorderPane.margin>
+            </GridPane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
