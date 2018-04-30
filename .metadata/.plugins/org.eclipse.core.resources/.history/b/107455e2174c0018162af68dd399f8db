@@ -11,7 +11,7 @@ public class SettingsController extends MainWindowController {
 	}
 	
 	@FXML
-	public void handleCreateAccount() {
+	public void handleNewUser() {
 	}
 	
 	@FXML
@@ -20,14 +20,6 @@ public class SettingsController extends MainWindowController {
 	
 	@FXML
 	public void handleUpdateInfo() {
-	}
-	
-	@FXML
-	public void handleDeleteUser() {
-	}
-	
-	@FXML
-	public void handleDeleteEvent() {
 	}
 	
 }

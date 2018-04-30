@@ -22,12 +22,4 @@ public class SettingsController extends MainWindowController {
 	public void handleUpdateInfo() {
 	}
 	
-	@FXML
-	public void handleDeleteUser() {
-	}
-	
-	@FXML
-	public void handleDeleteEvent() {
-	}
-	
 }

@@ -114,6 +114,15 @@ public class MainWindowController{
 		main.validTicketsWindow();
 	}
 	
+	@FXML
+	public void handleInvitations() throws IOException{
+		main.invitationsWindow();
+	}
+	
+	@FXML
+	public void handlePackages() {
+		main.packagesWindow();
+	}
 	
 	@FXML
 	public void handleSettings() {

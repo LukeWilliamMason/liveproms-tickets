@@ -47,11 +47,3 @@
 .general-button:hover{
 	-fx-background-color: #0598C3;
 }
-.delete-button{
-	-fx-background-color: white;
-	-fx-boarder-color: #f2f2f2;
-}
-.delete-button:hover{
-	-fx-background-color: white;
-	-fx-boarder-color: #0693C0;
-}

@@ -11,23 +11,18 @@ public class SettingsController extends MainWindowController {
 	}
 	
 	@FXML
-	public void handleCreateAccount() {
+	public void handleNewUser() {
+		main.settingsWindow();
 	}
 	
 	@FXML
 	public void handleChangePassword() {
+		main.settingsWindow();
 	}
 	
 	@FXML
 	public void handleUpdateInfo() {
-	}
-	
-	@FXML
-	public void handleDeleteUser() {
-	}
-	
-	@FXML
-	public void handleDeleteEvent() {
+		main.settingsWindow();
 	}
 	
 }

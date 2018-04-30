@@ -110,8 +110,6 @@ public class Main extends Application {
 	
 
 	
-
-	
 	public void settingsWindow() {
 
 		try {

@@ -67,37 +67,30 @@
                            <children>
                               <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleDashboard" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Helvetica Light" size="18.0" />
                                  </font>
                               </Button>
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#1c1c1c">
+                              <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="205.0" styleClass="sidebar-btns" text="Analytics" textFill="#1c1c1c">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Helvetica Light" size="18.0" />
                                  </font>
                               </Button>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
                            </children>
                         </HBox>
-                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleValidTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Valid Tickets" textFill="#727272">
+                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleValidTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Helvetica Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="invitationsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleInvitations" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Invitations" textFill="#727272">
+                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272">
                            <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="packagesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handlePackages" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Packages" textFill="#727272">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272" />
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font></Button>
                      </children>
                   </VBox>
                   <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
@@ -105,12 +98,10 @@
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
                         <MaterialDesignIconView fill="#0086b8" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="EMAIL_OPEN" scaleX="1.75" scaleY="1.75" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="PACKAGE_VARIANT_CLOSED" scaleX="1.9" scaleY="1.9" />
                         <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75" />
                      </children>
                   </VBox>
-                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="240.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="320.0" prefWidth="249.0" styleClass="event-view">
+                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="169.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="391.0" prefWidth="249.0" styleClass="event-view">
                     <columns>
                       <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" sortable="false" styleClass="event-view" text="EVENTS" />
                     </columns>

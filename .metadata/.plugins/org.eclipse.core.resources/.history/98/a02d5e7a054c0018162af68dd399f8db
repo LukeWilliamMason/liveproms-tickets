@@ -91,7 +91,7 @@ public class Main extends Application {
 
 		try {
 
-		FXMLLoader loader = new FXMLLoader(Main.class.getResource("TicketsView.fxml"));
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("ValidTicketsView.fxml"));
 		AnchorPane pane = loader.load();
 		Scene scene = new Scene(pane);
 		
@@ -108,9 +108,47 @@ public class Main extends Application {
 		}
 		}
 	
+	public void invitationsWindow() {
 
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("InvitationsView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		InvitationsController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
 	
+	public void packagesWindow() {
 
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("PackagesView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		PackagesController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
 	
 	public void settingsWindow() {
 
