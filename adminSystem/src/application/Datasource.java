@@ -149,8 +149,8 @@ public class Datasource   {
         			ticket.setEventName(results.getString(COLUMN_EVENT_NAME));
         			ticket.setTicketInfo(results.getString(COLUMN_TICKET_INFO));
         			ticket.setTicketName(results.getString(COLUMN_TICKET_NAME));
-        			ticket.setTicketPrice(results.getString(COLUMN_TICKET_PRICE));
-        			ticket.setTicketQuantity(results.getString(COLUMN_TICKET_QUANTITY));
+        			ticket.setTicketPrice(results.getInt(COLUMN_TICKET_PRICE));
+        			ticket.setTicketQuantity(results.getInt(COLUMN_TICKET_QUANTITY));
         			tickets.add(ticket);
         		}
         		

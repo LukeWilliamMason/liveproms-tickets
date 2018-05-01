@@ -8,4 +8,9 @@ public class AnalyticsController extends MainWindowController {
 		this.main = main;
 	}
 	
+	public void showInfo(Event event){		
+		eventNameLabel.setText(event.getEventName());
+		
+	}
+	
 }

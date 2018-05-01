@@ -27,11 +27,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css">
          <left>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
+            <Pane fx:id="sidebar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="571.0" prefHeight="50.0" prefWidth="220.0" styleClass="create-event-btn" stylesheets="@application.css">
                      <effect>
@@ -81,10 +81,18 @@
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleValidTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
+                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
+                        </Button>
+                        <Button fx:id="venuesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleVenues" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Venues" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </Button>
                         <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272">
                            <font>
@@ -96,16 +104,27 @@
                      <children>
                         <FontAwesomeIconView fill="#0086b8" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
                         <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
-                        <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75" />
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75">
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin></FontAwesomeIconView>
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="MAP_MARKER" size="20.0">
+                           <VBox.margin>
+                              <Insets bottom="-2.0" />
+                           </VBox.margin>
+                        </FontAwesomeIconView>
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></MaterialDesignIconView>
                      </children>
                   </VBox>
-                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="169.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="391.0" prefWidth="249.0" styleClass="event-view">
+                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="207.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="249.0" styleClass="event-view">
                     <columns>
                       <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" sortable="false" styleClass="event-view" text="EVENTS" />
                     </columns>
                   </TableView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="243.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="211.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />
                </children>
             </Pane>
          </left>

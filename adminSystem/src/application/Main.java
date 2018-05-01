@@ -87,7 +87,28 @@ public class Main extends Application {
 		}
 		}
 	
-	public void validTicketsWindow() {
+	public void venuesWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("VenuesView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+		VenuesController controller = loader.getController();
+		controller.setMain(this, stage);
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	
+	public void ticketsWindow() {
 
 		try {
 
@@ -133,11 +154,30 @@ public class Main extends Application {
 		}
 		}
 	
+	public void loadingWindow() {
+
+		try {
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoadingView.fxml"));
+		AnchorPane pane = loader.load();
+		Scene scene = new Scene(pane);
+		
+		Stage stage = new Stage();
+		
+
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
 	
 	
 	
 	public Main() {
-
+		
 	}
 	
 	

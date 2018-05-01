@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VenuesController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css">
+         <left>
+            <Pane fx:id="sidebar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="571.0" prefHeight="50.0" prefWidth="220.0" styleClass="create-event-btn" stylesheets="@application.css">
+                     <effect>
+                        <DropShadow color="#b5a9a9" />
+                     </effect>
+                     <children>
+                        <MaterialDesignIconView fill="WHITE" glyphName="PALETTE" scaleX="1.5" scaleY="1.5">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </MaterialDesignIconView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="27.0" text="Create Event" textFill="WHITE">
+                           <font>
+                              <Font name="Helvetica" size="14.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXButton prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="56.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Helvetica" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="40.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleDashboard" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
+                                 <font>
+                                    <Font name="Helvetica Light" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <HBox>
+                           <children>
+                              <Button fx:id="venuesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Venues" textFill="#1c1c1c">
+                                 <font>
+                                    <Font name="Helvetica Light" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleSettings" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Settings" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font></Button>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
+                     <children>
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75">
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin></FontAwesomeIconView>
+                        <FontAwesomeIconView fill="#0086b8" glyphName="MAP_MARKER" size="20.0">
+                           <VBox.margin>
+                              <Insets bottom="-2.0" />
+                           </VBox.margin>
+                        </FontAwesomeIconView>
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></MaterialDesignIconView>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="207.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="249.0" styleClass="event-view">
+                    <columns>
+                      <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" sortable="false" styleClass="event-view" text="EVENTS" />
+                    </columns>
+                  </TableView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="211.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />
+               </children>
+            </Pane>
+         </left>
+         <top>
+            <HBox prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/Live%20Promotions.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="eventNameLabel" alignment="CENTER" prefHeight="68.0" prefWidth="849.0" text="Venues" textFill="#008ab8" wrapText="true">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Helvetica Light" size="40.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow color="WHITE" />
+                     </effect>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="359.0" minHeight="10.0" prefHeight="325.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="318.5907287597656" minHeight="10.0" prefHeight="302.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="eventAddressLineOneLabel" prefHeight="40.0" prefWidth="308.0" textFill="#1c1c1c" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Helvetica Light" size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="60.0" top="85.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="eventAddressLineTwoLabel" prefHeight="40.0" prefWidth="301.0" textFill="#1c1c1c" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Helvetica Light" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="25.0" left="60.0" top="145.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-width: 0.25; -fx-border-radius: 2.5;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="204.0" layoutY="-2.0" prefHeight="27.0" prefWidth="357.0" text="Account" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-width: 0.25; -fx-border-radius: 2.5;">
+                     <children>
+                        <TableView layoutX="6.0" layoutY="3.0" prefHeight="273.0" prefWidth="755.0">
+                          <columns>
+                            <TableColumn prefWidth="130.45956420898438" text="Name" />
+                            <TableColumn minWidth="0.0" prefWidth="145.54043579101562" text="Address Line One" />
+                              <TableColumn prefWidth="116.37481689453125" text="Address Line 2" />
+                              <TableColumn prefWidth="110.37872314453125" text="Town/City" />
+                              <TableColumn prefWidth="78.4874267578125" text="Postcode" />
+                              <TableColumn prefWidth="91.2940673828125" text="Telephone" />
+                              <TableColumn prefWidth="90.37481689453125" text="Email" />
+                          </columns>
+                        </TableView>
+                        <HBox layoutX="30.0" layoutY="284.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="336.0" styleClass="general-button" text="Edit Venue">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="353.0" styleClass="general-button" text="Delete Venue" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;" GridPane.rowIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                     <children>
+                        <Line endX="763.0" layoutY="34.0" stroke="#707070" strokeWidth="0.25" />
+                        <Label alignment="CENTER" layoutX="205.0" layoutY="3.0" prefHeight="27.0" prefWidth="357.0" text="New Venue" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="eventNameArea" layoutX="164.0" layoutY="57.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="22.0" layoutY="54.0" prefHeight="27.0" prefWidth="112.0" text="Name:" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="eventStartDateArea" layoutX="164.0" layoutY="119.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="22.0" layoutY="115.0" prefHeight="27.0" prefWidth="138.0" text="Address Line One:" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="eventEndDateArea" layoutX="164.0" layoutY="179.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="22.0" layoutY="168.0" prefHeight="45.0" prefWidth="136.0" text="Address Line Two:" textFill="#727272" wrapText="true">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <Label layoutX="22.0" layoutY="228.0" prefHeight="45.0" prefWidth="136.0" text="Town/City" textFill="#727272" wrapText="true">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="eventVenueNameField" layoutX="164.0" layoutY="239.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="395.0" layoutY="55.0" prefHeight="27.0" prefWidth="161.0" text="Postcode:" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <Button layoutX="400.0" layoutY="236.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="general-button" text="Add Venue" />
+                        <TextField fx:id="eventVenueNameField1" layoutX="532.0" layoutY="56.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="397.0" layoutY="116.0" prefHeight="27.0" prefWidth="161.0" text="Telephone:" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="eventVenueNameField11" layoutX="532.0" layoutY="118.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="398.0" layoutY="175.0" prefHeight="27.0" prefWidth="161.0" text="Email:" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#ebebeb" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="eventVenueNameField111" layoutX="532.0" layoutY="177.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                           <effect>
+                              <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
+                           </effect>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </BorderPane.margin>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

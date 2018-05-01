@@ -1,0 +1,81 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class MainWindowController{
+
+	@FXML TableView<Event> eventView;
+	@FXML TableColumn<Event ,String> eventNameColumn;
+	@FXML Label eventNameLabel;
+	@FXML Label eventAddressLineOneLabel;
+	@FXML Label eventAddressLineTwoLabel;
+	@FXML Label eventPostcodeLabel;
+	@FXML Label eventTelephoneLabel;
+	@FXML Label eventTCLabel;
+	@FXML Label eventInfoLabel;
+	@FXML Label eventStartDateLabel;
+	@FXML Label eventEndDateLabel;
+	@FXML Label eventStartTimeLabel;
+	@FXML Label eventEndTimeLabel;
+	@FXML Label eventEmailLabel;
+	
+	private Stage stage;
+	private Main main;
+	
+	public ObservableList<Event> eventData = FXCollections.observableArrayList();
+	public ObservableList<Event> getEventData() { return eventData; }
+	
+
+	
+	public void setMain(Main main, Stage stage){
+		this.main = main;
+		this.stage = stage;
+		eventView.setItems(getEventData());
+	}
+	
+	
+	
+	@FXML
+	public void handleNewEvent() {
+		
+	}
+	
+	@FXML
+	public void handleDashboard() throws IOException {
+		main.mainWindow();
+	}
+	
+	@FXML
+	public void handleAnalytics() throws IOException {
+		main.analyticsWindow();
+	}
+	
+	@FXML
+	public void handleTickets() throws IOException{
+		main.ticketsWindow();
+	}
+	
+	
+	@FXML
+	public void handleSettings() {
+		main.settingsWindow();
+	}
+	
+	@FXML
+	public void handleVenues() {
+		main.venuesWindow();
+	}
+	
+}

@@ -29,90 +29,6 @@
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SettingsController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css">
-         <left>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="571.0" prefHeight="50.0" prefWidth="220.0" styleClass="create-event-btn" stylesheets="@application.css">
-                     <effect>
-                        <DropShadow color="#b5a9a9" />
-                     </effect>
-                     <children>
-                        <MaterialDesignIconView fill="WHITE" glyphName="PALETTE" scaleX="1.5" scaleY="1.5">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </MaterialDesignIconView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="27.0" text="Create Event" textFill="WHITE">
-                           <font>
-                              <Font name="Helvetica" size="14.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <JFXButton prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="56.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Helvetica" size="18.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-                  <VBox layoutX="40.0">
-                     <children>
-                        <HBox>
-                           <children>
-                              <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleDashboard" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
-                                 <font>
-                                    <Font name="Helvetica Light" size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
-                           <font>
-                              <Font name="Helvetica Light" size="18.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleValidTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
-                           <font>
-                              <Font name="Helvetica Light" size="18.0" />
-                           </font>
-                        </Button>
-                        <HBox>
-                           <children>
-                              <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="205.0" styleClass="sidebar-btns" text="Settings" textFill="#1c1c1c">
-                                 <font>
-                                    <Font name="Helvetica Light" size="18.0" />
-                                 </font>
-                              </Button>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
-                     <children>
-                        <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
-                        <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75" />
-                        <MaterialDesignIconView fill="#0086b8" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75" />
-                     </children>
-                  </VBox>
-                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="169.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="391.0" prefWidth="249.0" styleClass="event-view">
-                    <columns>
-                      <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" sortable="false" styleClass="event-view" text="EVENTS" />
-                    </columns>
-                  </TableView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="243.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />
-               </children>
-            </Pane>
-         </left>
          <top>
             <HBox prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                <children>
@@ -307,7 +223,7 @@
                      </GridPane.margin>
                      <children>
                         <Line endX="763.0" layoutY="34.0" stroke="#707070" strokeWidth="0.25" />
-                        <Label alignment="CENTER" layoutX="205.0" prefHeight="27.0" prefWidth="357.0" text="Event Settings" textFill="#727272">
+                        <Label alignment="CENTER" layoutX="205.0" layoutY="3.0" prefHeight="27.0" prefWidth="357.0" text="Edit Event" textFill="#727272">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
                            </font>
@@ -412,6 +328,111 @@
                </BorderPane.margin>
             </GridPane>
          </center>
+         <left>
+            <Pane fx:id="sidebar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="250.0" styleClass="sidebar" stylesheets="@application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="571.0" prefHeight="50.0" prefWidth="220.0" styleClass="create-event-btn" stylesheets="@application.css">
+                     <effect>
+                        <DropShadow color="#b5a9a9" />
+                     </effect>
+                     <children>
+                        <MaterialDesignIconView fill="WHITE" glyphName="PALETTE" scaleX="1.5" scaleY="1.5">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </MaterialDesignIconView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="27.0" text="Create Event" textFill="WHITE">
+                           <font>
+                              <Font name="Helvetica" size="14.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXButton prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="56.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Helvetica" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="40.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Button fx:id="dashboardButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleDashboard" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Dashboard" textFill="#727272">
+                                 <font>
+                                    <Font name="Helvetica Light" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ticketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="venuesButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleVenues" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Venues" textFill="#727272">
+                           <font>
+                              <Font name="Helvetica Light" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox>
+                           <children>
+                              <Button fx:id="settingsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Settings" textFill="#1c1c1c">
+                                 <font>
+                                    <Font name="Helvetica Light" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0086b8" height="38.0" strokeType="INSIDE" width="5.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
+                     <children>
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
+                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75">
+                           <VBox.margin>
+                              <Insets bottom="-5.0" />
+                           </VBox.margin>
+                        </FontAwesomeIconView>
+                        <FontAwesomeIconView fill="#e4e4e4" glyphName="MAP_MARKER" size="20.0">
+                           <VBox.margin>
+                              <Insets bottom="-2.0" />
+                           </VBox.margin>
+                        </FontAwesomeIconView>
+                        <MaterialDesignIconView fill="#0086b8" glyphName="SETTINGS" scaleX="1.75" scaleY="1.75">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </MaterialDesignIconView>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="eventView" fixedCellSize="35.0" layoutY="207.0" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="249.0" styleClass="event-view">
+                     <columns>
+                        <TableColumn fx:id="eventNameColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="-1.0" sortable="false" styleClass="event-view" text="EVENTS" />
+                     </columns>
+                  </TableView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="225.0" layoutY="211.0" stroke="WHITE" strokeType="INSIDE" width="25.0" />
+               </children>
+            </Pane>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>

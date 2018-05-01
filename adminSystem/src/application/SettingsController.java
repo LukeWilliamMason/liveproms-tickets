@@ -10,6 +10,11 @@ public class SettingsController extends MainWindowController {
 		this.main = main;
 	}
 	
+	public void showInfo(Event event){		
+		eventNameLabel.setText(event.getEventName());
+		
+	}
+	
 	@FXML
 	public void handleCreateAccount() {
 	}
