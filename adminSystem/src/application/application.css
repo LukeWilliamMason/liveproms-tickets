@@ -49,9 +49,9 @@
 }
 .delete-button{
 	-fx-background-color: white;
-	-fx-boarder-color: #f2f2f2;
+	-fx-border-color: #f2f2f2;
 }
 .delete-button:hover{
 	-fx-background-color: white;
-	-fx-boarder-color: #0693C0;
+	-fx-border-color: #0693C0;
 }

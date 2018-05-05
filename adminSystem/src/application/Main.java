@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -162,9 +163,7 @@ public class Main extends Application {
 		AnchorPane pane = loader.load();
 		Scene scene = new Scene(pane);
 		
-		Stage stage = new Stage();
-		
-
+		Stage stage = new Stage();	
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -173,6 +172,31 @@ public class Main extends Application {
 		e.printStackTrace();
 		}
 		}
+	
+	public void createEventWindow()  {
+		try{
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("CreateEventView.fxml"));
+			AnchorPane pane = loader.load();
+			
+			Scene scene = new Scene(pane);		
+			Stage stage = new Stage();
+			
+			CreateEventController controller = loader.getController();
+			controller.setMain(this, stage);
+			
+			stage.initOwner(primaryStage);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			
+			stage.setTitle("Create Event");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	

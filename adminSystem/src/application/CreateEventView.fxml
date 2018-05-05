@@ -17,8 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateEventController">
    <children>
       <GridPane>
         <rowConstraints>
@@ -71,22 +70,22 @@
                   <Font name="Helvetica Light" size="14.0" />
                </font>
             </Label>
-            <JFXDatePicker defaultColor="#0693c0" prefHeight="33.0" prefWidth="286.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <JFXDatePicker fx:id="eventStartDateField" defaultColor="#0693c0" prefHeight="33.0" prefWidth="286.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets left="1.0" />
                </padding>
             </JFXDatePicker>
-            <JFXDatePicker defaultColor="#0693c0" prefHeight="33.0" prefWidth="277.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <JFXDatePicker fx:id="eventEndDateField" defaultColor="#0693c0" prefHeight="33.0" prefWidth="277.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <padding>
                   <Insets left="1.0" />
                </padding>
             </JFXDatePicker>
-            <JFXComboBox prefHeight="27.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <JFXComboBox fx:id="eventLocationField" prefHeight="27.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
                   <Insets left="9.0" />
                </padding>
             </JFXComboBox>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1">
+            <TextField fx:id="eventNameField" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -94,7 +93,7 @@
                   <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
                </effect>
             </TextField>
-            <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextArea fx:id="eventInfoField" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -102,7 +101,7 @@
                   <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
                </effect>
             </TextArea>
-            <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextArea fx:id="eventTCField" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -120,22 +119,16 @@
                   <Font name="Helvetica Light" size="14.0" />
                </font>
             </Label>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <effect>
-                  <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
-               </effect>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <effect>
-                  <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
-               </effect>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
+            <JFXDatePicker fx:id="eventStartTimeField" defaultColor="#0693c0" prefHeight="33.0" prefWidth="286.0" showTime="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <padding>
+                  <Insets left="1.0" />
+               </padding>
+            </JFXDatePicker>
+            <JFXDatePicker fx:id="eventEndTimeField" defaultColor="#0693c0" prefHeight="33.0" prefWidth="286.0" showTime="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <padding>
+                  <Insets left="1.0" />
+               </padding>
+            </JFXDatePicker>
          </children>
       </GridPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="81.0" stroke="WHITE" strokeType="INSIDE" width="600.0" />
@@ -149,12 +142,7 @@
             <Font name="Helvetica Light" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="461.0" layoutY="136.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="51.0" styleClass="general-button" text="New">
-         <effect>
-            <DropShadow color="#cdcdcd" height="5.82" radius="3.17" width="8.86" />
-         </effect>
-      </Button>
-      <Button layoutX="346.0" layoutY="445.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="166.0" styleClass="general-button" text="Create Event">
+      <Button layoutX="346.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleCreateEvent" prefHeight="33.0" prefWidth="166.0" styleClass="general-button" stylesheets="@application.css" text="Create Event">
          <font>
             <Font size="14.0" />
          </font>
@@ -162,5 +150,10 @@
             <DropShadow color="#cdcdcd" height="5.82" radius="3.17" width="8.86" />
          </effect>
       </Button>
+      <Label fx:id="eventStatusLabel" layoutX="318.0" layoutY="32.0" prefHeight="16.0" prefWidth="181.0" textFill="#ff2c2c">
+         <font>
+            <Font name="Helvetica Light" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

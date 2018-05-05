@@ -51,7 +51,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXButton prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
+                        <JFXButton onAction="#handleCreateEvent" prefHeight="48.0" prefWidth="50.0" style="-fx-background-color: #0086B8; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets left="56.0" />
                            </HBox.margin>

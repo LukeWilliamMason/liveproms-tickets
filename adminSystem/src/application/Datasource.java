@@ -3,8 +3,11 @@ package application;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 
 import javafx.collections.FXCollections;
@@ -117,6 +120,31 @@ public class Datasource   {
         		return null;     
         	}
        }
+        
+        public void insertEvent(Event event){
+        	try{
+        		conn.createStatement();
+        		PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO " + TABLE_EVENTS + " VALUES (?, ?, ?, ?, ?, ?, ?);"  );
+        		preparedStatement.setString(1, event.getEventName());
+        		preparedStatement.setString(2, event.getEventStartDateTime());
+        		preparedStatement.setString(3, event.getEventEndDateTime());
+        		Date date = new Date(0, 0, 0); 
+        		preparedStatement.setString(4, new SimpleDateFormat("yyyy.MM.dd  HH:mm:ss").format(date).toString());
+        		preparedStatement.setString(5, event.getEventInfo());
+        		preparedStatement.setString(6, event.getEventTC());
+        		preparedStatement.setString(7, event.getVenueName());
+        		preparedStatement.execute();
+        	{   		
+     		
+
+        		System.out.println("Event Successfully Added");
+        		
+        	}} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage()); 
+        	}
+       }
+        
+
 
         public List<User> queryUsers(){
         	
@@ -183,4 +211,50 @@ public class Datasource   {
         		return null;       	
         }
         }
+        
+public ObservableList<Venue> queryVenues(){
+        	
+        	try(Statement statement = conn.createStatement();
+        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_VENUES)){   		
+        		
+        		ObservableList<Venue> venues = FXCollections.observableArrayList();        		
+        		while(results.next()){
+        			Venue venue = new Venue();
+        			venue.setVenueName(results.getString(COLUMN_VENUE_NAME));
+        			venue.setVenueAddressLineOne(results.getString(COLUMN_VENUE_ADDRESSLINEONE));
+        			venue.setVenueAddressLineTwo(results.getString(COLUMN_VENUE_ADDRESSLINETWO));
+        			venue.setVenueTownCity(results.getString(COLUMN_VENUE_TOWNCITY));
+        			venue.setVenuePostcode(results.getString(COLUMN_VENUE_POSTCODE));
+        			venue.setVenueTel(results.getString(COLUMN_VENUE_TEL));
+        			venue.setVenueEmail(results.getString(COLUMN_VENUE_EMAIL));
+        			venues.add(venue);
+        		}
+        		
+        		return venues;
+        		
+        	} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage());
+        		return null;     
+        	}
+       }
+
+public ObservableList<String> queryVenueName(){
+	
+	try(Statement statement = conn.createStatement();
+	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_VENUES)){   		
+		
+		ObservableList<String> venues = FXCollections.observableArrayList();        		
+		while(results.next()){
+			String string = new String();
+			string = results.getString(COLUMN_VENUE_NAME);
+			venues.add(string);
+		}
+		
+		return venues;
+		
+	} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage());
+		return null;     
+	}
+}
 }
