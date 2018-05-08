@@ -27,12 +27,36 @@ public class SettingsController extends MainWindowController {
 		String password = newPassField.getText();
 		String confirmPass = confirmPassField.getText();
 		
+		if(username.equals(null) || password.equals(null) || confirmPass.equals(null)){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Information");
+			alert.setHeaderText("Fields are empty.");
+			alert.setContentText("Fill in all required fields.");
+			alert.showAndWait();
+		}
+		if(password.equals(confirmPass)){
+			try{
 			Datasource datasource = new Datasource();
 			datasource.open();
 			user.setPassword(password);
 			user.setUsername(username);
 			datasource.insertUsers(user);
 			datasource.close();
+			return;
+			}catch(Exception e){
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Uh, oh!");
+				alert.setHeaderText("Error!");
+				alert.setContentText("User already exists.");
+				alert.showAndWait();
+			}
+		}else{
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Uh, oh!");
+			alert.setHeaderText("Error!");
+			alert.setContentText("Passwords do not match.");
+			alert.showAndWait();
+		}
 		
 	}
 	

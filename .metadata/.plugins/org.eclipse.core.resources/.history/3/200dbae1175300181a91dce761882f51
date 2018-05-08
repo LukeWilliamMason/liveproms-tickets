@@ -62,6 +62,7 @@ public void initialize(){
 
 	
 	public void showInfo(Event event){		
+		eventNameLabel.setText(event.getEventName());
 		
 	}
 	

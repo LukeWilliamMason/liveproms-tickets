@@ -91,7 +91,9 @@ public class TicketsController extends MainWindowController{
 	}
 	
 	
-	public void showInfo(Event event){				
+	public void showInfo(Event event){		
+		eventNameLabel.setText(event.getEventName());
+		
 	}
 	
 	@FXML
