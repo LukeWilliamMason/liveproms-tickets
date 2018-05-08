@@ -40,7 +40,9 @@ public class TicketsController extends MainWindowController{
 	@FXML private TextField emailField, tempFolderField;
 	@FXML private Button browse;
 	@FXML private TableColumn<Order, String> orderIdColumn, orderTypeColumn, orderEmailColumn, orderDateColumn, orderValidColumn;
-	@FXML TableView<Order> orderView;
+	@FXML private TableColumn<Ticket, String> ticketTypeNameColumn, ticketTypePriceColumn, ticketTypeQuantityColumn;
+	@FXML TableView<Order> orderView ;
+	@FXML TableView<Ticket> ticketView;
 	public static File  d;
 	
 	private Main main;
@@ -49,6 +51,8 @@ public class TicketsController extends MainWindowController{
 	public static ObservableList<String> getTicketName() { return ticketName; }
 	private static ObservableList<Order> ticketData = FXCollections.observableArrayList();
 	public static ObservableList<Order> getTicketData() { return ticketData; }
+	private static ObservableList<Ticket> ticketTypeData = FXCollections.observableArrayList();
+	public static ObservableList<Ticket> getTicketTypeData() { return ticketTypeData; }
 	
 	
 	public void setMain(Main main){
@@ -58,14 +62,20 @@ public class TicketsController extends MainWindowController{
 	
 	public void initialize(){
 		Datasource datasource = new Datasource();
-		datasource.open();
+		datasource.open();	
 		eventData = datasource.queryEvents();
-
 		orderIdColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderID"));
 		orderTypeColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("ticketName"));
 		orderEmailColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderEmail"));
 		orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
 		orderValidColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderValid"));
+		
+		ticketTypeData = datasource.queryTickets();
+		ticketTypeNameColumn.setCellValueFactory(new PropertyValueFactory<Ticket,String>("ticketName"));
+		ticketTypePriceColumn.setCellValueFactory(new PropertyValueFactory<Ticket,String>("ticketPrice"));
+		ticketTypeQuantityColumn.setCellValueFactory(new PropertyValueFactory<Ticket,String>("ticketQuantity"));
+		
+		
 		
 		
 		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -74,6 +84,7 @@ public class TicketsController extends MainWindowController{
 				(observable, oldValue, newValue) -> showInfo(newValue));
 		
 		ticketData = datasource.queryOrders();
+		ticketView.setItems(ticketTypeData);
 		orderView.setItems(ticketData);
 		ticketName = datasource.queryTicketName();
 		ticketSelection.setItems(ticketName);
@@ -221,6 +232,28 @@ public class TicketsController extends MainWindowController{
 		}
 	}
 	
+	@FXML
+	public void deleteOrder(){
+		Datasource datasource = new Datasource();
+		datasource.open();
+		int i = orderView.getSelectionModel().getSelectedIndex();
+		Order order = new Order();
+		order = orderView.getSelectionModel().getSelectedItem();
+		datasource.deleteOrder(order);
+		TicketsController.getTicketData().remove(i);
+	}
+	
+	@FXML
+	public void deleteTicket(){
+		Datasource datasource = new Datasource();
+		datasource.open();
+		int i = ticketView.getSelectionModel().getSelectedIndex();
+		Ticket ticket = new Ticket();
+		ticket = ticketView.getSelectionModel().getSelectedItem();
+		datasource.deleteTicket(ticket);
+		TicketsController.getTicketTypeData().remove(i);
+		initialize();
+	}
 	
 
 }

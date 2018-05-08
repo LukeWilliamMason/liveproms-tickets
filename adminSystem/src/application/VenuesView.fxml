@@ -198,12 +198,10 @@
                         </TableView>
                         <HBox layoutX="30.0" layoutY="284.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="336.0" styleClass="general-button" text="Edit Venue">
+                              <Button mnemonicParsing="false" onAction="#deleteVenue" prefHeight="31.0" prefWidth="353.0" styleClass="general-button" text="Delete Venue">
                                  <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="353.0" styleClass="general-button" text="Delete Venue" />
+                                    <Insets left="175.0" />
+                                 </HBox.margin></Button>
                            </children>
                         </HBox>
                      </children>

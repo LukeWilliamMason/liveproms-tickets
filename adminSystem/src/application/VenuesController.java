@@ -20,7 +20,7 @@ public class VenuesController extends MainWindowController{
 	@FXML private TextField venuePostcodeField;
 	@FXML private TextField venueTelephoneField;
 	@FXML private TextField venueEmailField;
-	@FXML private TableView venueView;
+	@FXML private TableView<Venue> venueView;
 	@FXML private TableColumn<Venue, String> venueNameColumn, venueAddressLineOneColumn, venueAddressLineTwoColumn,
 	venueTownCityColumn, venueTelephoneColumn, venueEmailColumn, venuePostcodeColumn;
 	
@@ -116,5 +116,17 @@ public void initialize(){
 		venueTelephoneField.setText("");
 		venueEmailField.setText("");
 	}
+	
+	@FXML
+	public void deleteVenue(){
+		Datasource datasource = new Datasource();
+		datasource.open();
+		int i = venueView.getSelectionModel().getSelectedIndex();
+		Venue venue = new Venue();
+		venue = venueView.getSelectionModel().getSelectedItem();
+		datasource.deleteVenue(venue);
+		VenuesController.getVenueData().remove(i);
+	}
+	
 	
 }

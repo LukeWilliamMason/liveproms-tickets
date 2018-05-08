@@ -251,27 +251,7 @@ public void insertUsers(User user){
 	}
 }
         
-        public List<Ticket> queryTicket(){
-        	try(Statement statement = conn.createStatement();
-        	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_TICKETS)){
-        		
-        		List<Ticket> tickets = new ArrayList<>();
-        		while(results.next()){
-        			Ticket ticket = new Ticket();
-        			ticket.setEventName(results.getString(COLUMN_EVENT_NAME));
-        			ticket.setTicketInfo(results.getString(COLUMN_TICKET_INFO));
-        			ticket.setTicketName(results.getString(COLUMN_TICKET_NAME));
-        			ticket.setTicketPrice(results.getString(COLUMN_TICKET_PRICE));
-        			ticket.setTicketQuantity(results.getString(COLUMN_TICKET_QUANTITY));
-        			tickets.add(ticket);
-        		}
-        		
-        		return tickets;
-        	} catch(SQLException e) {
-        		System.out.println("Query failed:" + e.getMessage());
-        		return null;       	
-        }
-        }
+
         
         public ObservableList<Order> queryOrders(){
         	try(Statement statement = conn.createStatement();
@@ -381,5 +361,93 @@ public ObservableList<String> queryTicketName(){
 		return null;     
 	}
 }
+
+public ObservableList<Ticket> queryTickets(){
+	
+	try(Statement statement = conn.createStatement();
+	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_TICKETS)){   		
+		
+		ObservableList<Ticket> tickets = FXCollections.observableArrayList();        		
+		while(results.next()){
+			Ticket ticket = new Ticket();
+			ticket.setTicketName(results.getString(COLUMN_TICKET_NAME));
+			ticket.setTicketPrice(results.getString(COLUMN_TICKET_PRICE));
+			ticket.setTicketQuantity(results.getString(COLUMN_TICKET_QUANTITY));
+			tickets.add(ticket);
+		}
+		
+		return tickets;
+		
+	} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage());
+		return null;     
+	}
+}
+
+public void deleteTicket(Ticket ticket){
+	try{
+		conn.createStatement();
+		PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM " + TABLE_TICKETS + " WHERE " + COLUMN_TICKET_NAME + " = ?");
+		preparedStatement.setString(1, ticket.getTicketName());
+		preparedStatement.execute();
+	{   		
+		
+
+		System.out.println("Event Successfully Deleted");
+		
+	}} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage()); 
+	}
+}
+
+
+public void deleteOrder(Order order){
+	try{
+		conn.createStatement();
+		PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM " + TABLE_ORDERS + " WHERE " + COLUMN_ORDER_ID + " = ?");
+		preparedStatement.setString(1, order.getOrderID());
+		preparedStatement.execute();
+	{   		
+		
+
+		System.out.println("Event Successfully Deleted");
+		
+	}} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage()); 
+	}
+}
+
+public void deleteVenue(Venue venue){
+	try{
+		conn.createStatement();
+		PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM " + TABLE_VENUES + " WHERE " + COLUMN_VENUE_NAME + " = ?");
+		preparedStatement.setString(1, venue.getVenueName());
+		preparedStatement.execute();
+	{   		
+		
+
+		System.out.println("Event Successfully Deleted");
+		
+	}} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage()); 
+	}
+}
+
+public void deleteEvent(Event event){
+	try{
+		conn.createStatement();
+		PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM " + TABLE_EVENTS + " WHERE " + COLUMN_EVENT_NAME + " = ?");
+		preparedStatement.setString(1, event.getVenueName());
+		preparedStatement.execute();
+	{   		
+		
+
+		System.out.println("Event Successfully Deleted");
+		
+	}} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage()); 
+	}
+}
+
 
 }

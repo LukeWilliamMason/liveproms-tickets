@@ -23,9 +23,9 @@ public class SettingsController extends MainWindowController {
 	@FXML
 	public void handleCreateAccount() {
 		User user = new User();
-		String username = newUserField.getText().toString();
-		String password = newPassField.getText().toString();
-		String confirmPass = confirmPassField.getText().toString();
+		String username = newUserField.getText();
+		String password = newPassField.getText();
+		String confirmPass = confirmPassField.getText();
 		
 		if(username.equals(null) || password.equals(null) || confirmPass.equals(null)){
 			Alert alert = new Alert(AlertType.INFORMATION);
@@ -42,6 +42,7 @@ public class SettingsController extends MainWindowController {
 			user.setUsername(username);
 			datasource.insertUsers(user);
 			datasource.close();
+			return;
 			}catch(Exception e){
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Uh, oh!");
@@ -73,6 +74,13 @@ public class SettingsController extends MainWindowController {
 	
 	@FXML
 	public void handleDeleteEvent() {
+		Datasource datasource = new Datasource();
+		datasource.open();
+		int i = eventView.getSelectionModel().getSelectedIndex();
+		Event event = new Event();
+		event = eventView.getSelectionModel().getSelectedItem();
+		datasource.deleteEvent(event);
+		SettingsController.getEventData().remove(i);
 	}
 	
 }

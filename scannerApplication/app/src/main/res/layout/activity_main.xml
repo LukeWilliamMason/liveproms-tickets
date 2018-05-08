@@ -6,26 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/scanButton"
-        android:layout_marginTop="24dp"
-        android:text="Logout"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="65dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/scanButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="120dp"
-        android:text="Scan"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="167dp" />
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#FFFFFF"
+            android:text="Logout"
+            android:textColor="#0693C0"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="65dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            app:srcCompat="@drawable/livepromotions" />
+
+        <Button
+            android:id="@+id/scanButton"
+            android:layout_width="match_parent"
+            android:layout_height="243dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="106dp"
+            android:background="#0693C0"
+            android:text="TAP TO SCAN"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="167dp" />
+    </LinearLayout>
+
 </RelativeLayout>
