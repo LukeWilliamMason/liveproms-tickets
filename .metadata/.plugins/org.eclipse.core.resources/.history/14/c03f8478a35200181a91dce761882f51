@@ -1,0 +1,99 @@
+package application;
+
+import java.util.Properties;
+
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.mail.internet.MimeMessage;
+
+import com.jfoenix.controls.JFXComboBox;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class TicketsController extends MainWindowController{
+	
+	@FXML private JFXComboBox<String> ticketSelection;
+	@FXML private Button sendInvitationButton;
+	@FXML private TextField emailField;
+	
+	private Main main;
+	
+	private static ObservableList<String> ticketData = FXCollections.observableArrayList();
+	public static ObservableList<String> getTicketData() { return ticketData; }
+	
+	public void setMain(Main main){
+		this.main = main;
+		eventView.setItems(getEventData());
+	}
+	
+	public void initialize(){
+		Datasource datasource = new Datasource();
+		datasource.open();
+		eventData = datasource.queryEvents();
+
+		
+		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("EventName"));
+		eventView.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> showInfo(newValue));
+		ticketData = datasource.queryTicketName();
+		ticketSelection.setItems(ticketData);
+	}
+	
+	
+	public void showInfo(Event event){		
+		eventNameLabel.setText(event.getEventName());
+		
+	}
+	
+	@FXML
+	public void handleButton(){
+	try{
+	String host = "smtp.gmail.com";
+	String user = "lukewilliammason@gmail.com";
+	String password = "spamman3";
+	String to = emailField.getText().toString();
+	String from = "lukewilliammason@gmail.com";
+	String subject = ticketSelection.getValue().toString();
+	String messageText = "This QR code is your ticket. Please present this when you arrive at the event.";
+	boolean sessionDebug = false;
+
+    Properties props = System.getProperties();
+
+    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.smtp.host", host);
+    props.put("mail.smtp.port", "587");
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.required", "true");
+
+    java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+    Session mailSession = Session.getDefaultInstance(props, null);
+    mailSession.setDebug(sessionDebug);
+    Message msg = new MimeMessage(mailSession);
+    msg.setFrom(new InternetAddress(from));
+    InternetAddress[] address = {new InternetAddress(to)};
+    msg.setRecipients(Message.RecipientType.TO, address);
+    msg.setSubject(subject); msg.setSentDate(new Date());
+    msg.setText(messageText);
+
+   Transport transport=mailSession.getTransport("smtp");
+   transport.connect(host, user, password);
+   transport.sendMessage(msg, msg.getAllRecipients());
+   transport.close();
+   System.out.println("message send successfully");
+}catch(Exception ex)
+{
+    System.out.println(ex);
+}
+	
+	}
+	
+
+}

@@ -56,11 +56,7 @@ public class CreateEventController extends MainWindowController {
 		String eventED = eventEndDateField.getValue().toString();
 		String eventInfo = eventInfoField.getText();
 		String eventTC = eventTCField.getText();
-		
-		if(eventName == null || eventSD == null || eventST == null || eventET == null || eventED == null || eventInfo == null || eventTC == null){
-		eventStatusLabel.setText("Please fill out all fields");
-		return;
-		}
+	
 		
 		
 		

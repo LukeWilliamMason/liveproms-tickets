@@ -119,7 +119,7 @@ public class Main extends Application {
 		
 		Stage stage = new Stage();
 		
-		ValidTicketsController controller = loader.getController();
+		TicketsController controller = loader.getController();
 		controller.setMain(this, stage);
 
 		primaryStage.setScene(scene);

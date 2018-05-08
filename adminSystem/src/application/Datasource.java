@@ -144,6 +144,28 @@ public class Datasource   {
         	}
        }
         
+        public void insertOrder(Order order){
+        	try{
+        		conn.createStatement();
+        		PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO " + TABLE_ORDERS + " VALUES (?, ?, ?, ?, ?, ?);"  );
+        		preparedStatement.setString(1, order.getOrderID());
+        		preparedStatement.setString(2, order.getTicketName());
+        		preparedStatement.setString(3, order.getOrderDate());
+        		Date date = new Date(0, 0, 0); 
+        		preparedStatement.setString(4, order.getOrderValid());
+        		preparedStatement.setString(5, order.getOrderInvitation());
+        		preparedStatement.setString(6, order.getOrderEmail());
+        		preparedStatement.execute();
+        	{   		
+     		
+
+        		System.out.println("Order Successfully Added");
+        		
+        	}} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage()); 
+        	}
+       }
+        
 
 
         public List<User> queryUsers(){
@@ -257,4 +279,25 @@ public ObservableList<String> queryVenueName(){
 		return null;     
 	}
 }
+
+public ObservableList<String> queryTicketName(){
+	
+	try(Statement statement = conn.createStatement();
+	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_TICKETS)){   		
+		
+		ObservableList<String> tickets = FXCollections.observableArrayList();        		
+		while(results.next()){
+			String string = new String();
+			string = results.getString(COLUMN_TICKET_NAME);
+			tickets.add(string);
+		}
+		
+		return tickets;
+		
+	} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage());
+		return null;     
+	}
+}
+
 }
