@@ -128,8 +128,11 @@ public class Datasource   {
         		preparedStatement.setString(1, event.getEventName());
         		preparedStatement.setString(2, event.getEventStartDateTime());
         		preparedStatement.setString(3, event.getEventEndDateTime());
-        		Date date = new Date(0, 0, 0); 
-        		preparedStatement.setString(4, new SimpleDateFormat("yyyy.MM.dd  HH:mm:ss").format(date).toString());
+        		Calendar cal = Calendar.getInstance();
+        		   java.util.Date utilDate = new java.util.Date();
+        		   cal.setTime(utilDate);
+        		   cal.set(Calendar.MILLISECOND, 0);
+        		preparedStatement.setString(4, new java.sql.Timestamp(utilDate.getTime()).toString());
         		preparedStatement.setString(5, event.getEventInfo());
         		preparedStatement.setString(6, event.getEventTC());
         		preparedStatement.setString(7, event.getVenueName());
@@ -188,6 +191,26 @@ public class Datasource   {
         	}
        }
         
+        public void insertTicket(Ticket ticket){
+        	try{
+        		conn.createStatement();
+        		PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO " + TABLE_TICKETS + " VALUES (?, ?, ?, ?, ?);"  );
+        		preparedStatement.setString(1, ticket.getTicketName());
+        		preparedStatement.setString(2, ticket.getTicketPrice());
+        		preparedStatement.setString(3, ticket.getTicketQuantity());
+        		preparedStatement.setString(4, ticket.getEventName());
+        		preparedStatement.setString(5, ticket.getTicketInfo());
+        		preparedStatement.execute();
+        	{   		
+     		
+
+        		System.out.println("Ticket Successfully Added");
+        		
+        	}} catch(SQLException e) {
+        		System.out.println("Query failed:" + e.getMessage()); 
+        	}
+       }
+        
 
 
         public List<User> queryUsers(){
@@ -211,6 +234,23 @@ public class Datasource   {
         	}
        }
         
+public void insertUsers(User user){
+	try{
+		conn.createStatement();
+		PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO " + TABLE_USERS + " VALUES (?, ?);"  );
+		preparedStatement.setString(1, user.getUsername());
+		preparedStatement.setString(2, user.getPassword());
+		preparedStatement.execute();
+	{   		
+		
+
+		System.out.println("User Successfully Added");
+		
+	}} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage()); 
+	}
+}
+        
         public List<Ticket> queryTicket(){
         	try(Statement statement = conn.createStatement();
         	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_TICKETS)){
@@ -221,8 +261,8 @@ public class Datasource   {
         			ticket.setEventName(results.getString(COLUMN_EVENT_NAME));
         			ticket.setTicketInfo(results.getString(COLUMN_TICKET_INFO));
         			ticket.setTicketName(results.getString(COLUMN_TICKET_NAME));
-        			ticket.setTicketPrice(results.getInt(COLUMN_TICKET_PRICE));
-        			ticket.setTicketQuantity(results.getInt(COLUMN_TICKET_QUANTITY));
+        			ticket.setTicketPrice(results.getString(COLUMN_TICKET_PRICE));
+        			ticket.setTicketQuantity(results.getString(COLUMN_TICKET_QUANTITY));
         			tickets.add(ticket);
         		}
         		
@@ -233,11 +273,11 @@ public class Datasource   {
         }
         }
         
-        public List<Order> queryOrders(){
+        public ObservableList<Order> queryOrders(){
         	try(Statement statement = conn.createStatement();
         	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_ORDERS)){
         		
-        		List<Order> orders = new ArrayList<>();
+        		ObservableList<Order> orders = FXCollections.observableArrayList();
         		while(results.next()){
         			Order order = new Order();
         			order.setOrderID(results.getString(COLUMN_ORDER_ID));
@@ -295,6 +335,26 @@ public ObservableList<String> queryVenueName(){
 		}
 		
 		return venues;
+		
+	} catch(SQLException e) {
+		System.out.println("Query failed:" + e.getMessage());
+		return null;     
+	}
+}
+
+public ObservableList<String> queryEventName(){
+	
+	try(Statement statement = conn.createStatement();
+	ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_EVENTS)){   		
+		
+		ObservableList<String> events = FXCollections.observableArrayList();        		
+		while(results.next()){
+			String string = new String();
+			string = results.getString(COLUMN_EVENT_NAME);
+			events.add(string);
+		}
+		
+		return events;
 		
 	} catch(SQLException e) {
 		System.out.println("Query failed:" + e.getMessage());

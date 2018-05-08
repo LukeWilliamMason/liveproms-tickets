@@ -1,0 +1,58 @@
+package application;
+
+import com.jfoenix.controls.JFXComboBox;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
+public class NewTicketController extends TicketsController {
+	
+	@FXML private JFXComboBox<String> eventNameField;
+	
+	private Main main;
+	private Stage stage;
+	
+	
+	public void setMain(Main main, Stage stage){
+		this.main = main;
+		this.stage = stage;
+	}
+	
+	private static ObservableList<String> eventData = FXCollections.observableArrayList();
+	public static ObservableList<String> getEventName() { return eventData; }
+	
+	public void initialize(){
+		Datasource datasource = new Datasource();
+		datasource.open();
+		eventData = datasource.queryEventName();
+		eventNameField.setItems(eventData);
+	}
+	
+	@FXML
+	public void handleCreateTicket(){
+		Event event = new Event();
+		
+
+	
+		
+	
+		
+		Datasource datasource = new Datasource();
+		datasource.open();
+		datasource.insertEvent(event);
+		datasource.close();
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		   alert.setTitle("Success!");
+		   alert.setHeaderText("New event added.");
+
+		   alert.showAndWait();
+		stage.close();
+		
+		
+	}
+	
+}

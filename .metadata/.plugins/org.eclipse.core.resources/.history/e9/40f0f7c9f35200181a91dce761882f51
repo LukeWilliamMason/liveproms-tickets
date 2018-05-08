@@ -1,0 +1,56 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+public class SettingsController extends MainWindowController {
+	
+	@FXML TextField newUserField, newPassField, confirmPassField;
+
+	private Main main;
+	
+	public void setMain(Main main){
+		this.main = main;
+	}
+	
+	public void showInfo(Event event){		
+		eventNameLabel.setText(event.getEventName());
+		
+	}
+	
+	@FXML
+	public void handleCreateAccount() {
+		User user = new User();
+		String username = newUserField.getText();
+		String password = newPassField.getText();
+		String confirmPass = confirmPassField.getText();
+		
+		user.setPassword(password);
+		user.setUsername(username);
+		
+		if(password.equals(confirmPass)){
+			Datasource datasource = new Datasource();
+			datasource.open();
+			datasource.insertUsers(user);
+			datasource.close();
+		}
+		
+	}
+	
+	@FXML
+	public void handleChangePassword() {
+	}
+	
+	@FXML
+	public void handleUpdateInfo() {
+	}
+	
+	@FXML
+	public void handleDeleteUser() {
+	}
+	
+	@FXML
+	public void handleDeleteEvent() {
+	}
+	
+}

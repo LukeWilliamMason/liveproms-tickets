@@ -72,11 +72,6 @@
                               </Button>
                            </children>
                         </HBox>
-                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
-                           <font>
-                              <Font name="Helvetica Light" size="18.0" />
-                           </font>
-                        </Button>
                         <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
@@ -101,7 +96,6 @@
                   <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
                      <children>
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75">
                            <VBox.margin>
                               <Insets bottom="-5.0" />
@@ -191,15 +185,15 @@
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-width: 0.25; -fx-border-radius: 2.5;">
                      <children>
-                        <TableView layoutX="6.0" layoutY="3.0" prefHeight="273.0" prefWidth="755.0">
+                        <TableView fx:id="venueView" layoutX="6.0" layoutY="3.0" prefHeight="273.0" prefWidth="755.0">
                           <columns>
-                            <TableColumn prefWidth="130.45956420898438" text="Name" />
-                            <TableColumn minWidth="0.0" prefWidth="145.54043579101562" text="Address Line One" />
-                              <TableColumn prefWidth="116.37481689453125" text="Address Line 2" />
-                              <TableColumn prefWidth="110.37872314453125" text="Town/City" />
-                              <TableColumn prefWidth="78.4874267578125" text="Postcode" />
-                              <TableColumn prefWidth="91.2940673828125" text="Telephone" />
-                              <TableColumn prefWidth="90.37481689453125" text="Email" />
+                            <TableColumn fx:id="venueNameColumn" prefWidth="130.45956420898438" text="Name" />
+                            <TableColumn fx:id="venueAddressLineOneColumn" minWidth="0.0" prefWidth="145.54043579101562" text="Address Line One" />
+                              <TableColumn fx:id="venueAddressLineTwoColumn" prefWidth="116.37481689453125" text="Address Line 2" />
+                              <TableColumn fx:id="venueTownCityColumn" prefWidth="110.37872314453125" text="Town/City" />
+                              <TableColumn fx:id="venuePostcodeColumn" prefWidth="78.4874267578125" text="Postcode" />
+                              <TableColumn fx:id="venueTelephoneColumn" prefWidth="91.2940673828125" text="Telephone" />
+                              <TableColumn fx:id="venueEmailColumn" prefWidth="90.37481689453125" text="Email" />
                           </columns>
                         </TableView>
                         <HBox layoutX="30.0" layoutY="284.0">

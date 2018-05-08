@@ -1,9 +1,14 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class VenuesController extends MainWindowController{
 	
@@ -15,10 +20,44 @@ public class VenuesController extends MainWindowController{
 	@FXML private TextField venuePostcodeField;
 	@FXML private TextField venueTelephoneField;
 	@FXML private TextField venueEmailField;
+	@FXML private TableView venueView;
+	@FXML private TableColumn<Venue, String> venueNameColumn, venueAddressLineOneColumn, venueAddressLineTwoColumn,
+	venueTownCityColumn, venueTelephoneColumn, venueEmailColumn, venuePostcodeColumn;
 	
 	
 	public void setMain(Main main){
 		this.main = main;
+	}
+	
+	private static ObservableList<Venue> venueData = FXCollections.observableArrayList();
+	public static ObservableList<Venue> getVenueData() { return venueData; }
+	
+public void initialize(){
+		
+		
+		Datasource datasource = new Datasource();
+		datasource.open();
+		
+		venueData = datasource.queryVenues();
+		venueView.setItems(venueData);
+		venueNameColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venueName"));
+		venueAddressLineOneColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venueAddressLineOne"));
+		venueAddressLineTwoColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venueAddressLineTwo"));
+		venueTownCityColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venueTownCity"));
+		venueTelephoneColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venueTel"));
+		venueEmailColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venueEmail"));
+		venuePostcodeColumn.setCellValueFactory(new PropertyValueFactory<Venue, String>("venuePostcode"));
+		
+		
+		eventData = datasource.queryEvents();
+		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("EventName"));
+		eventView.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> showInfo(newValue));
+		
+		
+		
+		
 	}
 
 	
@@ -69,6 +108,13 @@ public class VenuesController extends MainWindowController{
 		   alert.showAndWait();
 		
 		initialize();
+		venueNameField.setText("");
+		venueAddressLineOneField.setText("");
+		venueAddressLineTwoField.setText("");
+		venueTownCityField.setText("");
+		venuePostcodeField.setText("");
+		venueTelephoneField.setText("");
+		venueEmailField.setText("");
 	}
 	
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewTicketController">
    <children>
       <GridPane>
         <rowConstraints>
@@ -32,8 +33,6 @@
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Ticket Name:" textFill="#727272">
@@ -41,7 +40,7 @@
                   <Font name="Helvetica Light" size="14.0" />
                </font>
             </Label>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1">
+            <TextField fx:id="ticketNameField" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -59,7 +58,7 @@
                   <Font name="Helvetica Light" size="14.0" />
                </font>
             </Label>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="ticketPriceField" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <effect>
                   <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
                </effect>
@@ -67,7 +66,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="ticketQuantityField" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <effect>
                   <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
                </effect>
@@ -80,22 +79,12 @@
                   <Font name="Helvetica Light" size="14.0" />
                </font>
             </Label>
-            <Label text="Venue Town/City:" textFill="#727272" GridPane.rowIndex="4">
+            <Label text="Event Name:" textFill="#727272" GridPane.rowIndex="4">
                <font>
                   <Font name="Helvetica Light" size="14.0" />
                </font>
             </Label>
-            <Label text="Venue Telephone:" textFill="#727272" GridPane.rowIndex="6">
-               <font>
-                  <Font name="Helvetica Light" size="14.0" />
-               </font>
-            </Label>
-            <Label text="Venue Email:" textFill="#727272" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Helvetica Light" size="14.0" />
-               </font>
-            </Label>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="ticketInfoField" style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <effect>
                   <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
                </effect>
@@ -103,30 +92,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <effect>
-                  <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
-               </effect>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <effect>
-                  <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
-               </effect>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField style="-fx-background-color: WHITE; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-background-radius: 2.5; -fx-border-width: 0.25;" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <effect>
-                  <DropShadow color="#ababab" height="5.82" radius="2.41" width="5.82" />
-               </effect>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
+            <JFXComboBox fx:id="eventNameField" prefHeight="27.0" prefWidth="252.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="81.0" stroke="WHITE" strokeType="INSIDE" width="600.0" />
@@ -140,7 +106,7 @@
             <Font name="Helvetica Light" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="354.0" layoutY="414.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="166.0" styleClass="general-button" text="Create New Ticket">
+      <Button layoutX="354.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleCreateTicket" prefHeight="33.0" prefWidth="166.0" styleClass="general-button" text="Create New Ticket">
          <font>
             <Font size="14.0" />
          </font>

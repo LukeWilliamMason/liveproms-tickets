@@ -373,11 +373,6 @@
                               </Button>
                            </children>
                         </HBox>
-                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
-                           <font>
-                              <Font name="Helvetica Light" size="18.0" />
-                           </font>
-                        </Button>
                         <Button fx:id="ticketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="40.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleTickets" prefHeight="37.5" prefWidth="210.0" styleClass="sidebar-btns" text="Tickets" textFill="#727272">
                            <font>
                               <Font name="Helvetica Light" size="18.0" />
@@ -406,7 +401,6 @@
                   <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
                      <children>
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="TICKET" scaleX="1.75" scaleY="1.75">
                            <VBox.margin>
                               <Insets bottom="-5.0" />

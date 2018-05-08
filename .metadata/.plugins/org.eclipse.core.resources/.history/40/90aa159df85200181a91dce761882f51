@@ -1,0 +1,13 @@
+package application;
+
+import javafx.stage.Stage;
+
+public class NewTicketController extends MainWindowController {
+	private Main main;
+	private Stage stage;
+	
+	public void setMain(Main main, Stage stage){
+		this.main = main;
+		this.stage = stage;
+	}
+}

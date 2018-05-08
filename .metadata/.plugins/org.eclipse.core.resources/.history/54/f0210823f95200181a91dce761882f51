@@ -1,0 +1,27 @@
+package application;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.stage.Stage;
+
+public class NewTicketController extends MainWindowController {
+	private Main main;
+	private Stage stage;
+	
+	@FXML 
+	
+	public void setMain(Main main, Stage stage){
+		this.main = main;
+		this.stage = stage;
+	}
+	
+	private static ObservableList<String> eventData = FXCollections.observableArrayList();
+	public static ObservableList<String> getEventName() { return eventData; }
+	
+	public void initialize(){
+		Datasource datasource = new Datasource();
+		datasource.open();
+		eventData = datasource.queryEventName();
+		eventLocationField.setItems(eventData);
+	}
+}

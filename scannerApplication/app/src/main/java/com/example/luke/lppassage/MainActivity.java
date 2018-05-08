@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "You cancelled the scanning", Toast.LENGTH_LONG).show();
         }
         else {
-            Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();
             validate(result.getContents().toString());
         }
     }

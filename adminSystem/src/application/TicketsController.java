@@ -26,20 +26,30 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 
 public class TicketsController extends MainWindowController{
 	
 	@FXML private JFXComboBox<String> ticketSelection;
 	@FXML private Button sendInvitationButton;
-	@FXML private TextField emailField;
+	@FXML private TextField emailField, tempFolderField;
+	@FXML private Button browse;
+	@FXML private TableColumn<Order, String> orderIdColumn, orderTypeColumn, orderEmailColumn, orderDateColumn, orderValidColumn;
+	@FXML TableView<Order> orderView;
+	public static File  d;
 	
 	private Main main;
 	
-	private static ObservableList<String> ticketData = FXCollections.observableArrayList();
-	public static ObservableList<String> getTicketData() { return ticketData; }
+	private static ObservableList<String> ticketName = FXCollections.observableArrayList();
+	public static ObservableList<String> getTicketName() { return ticketName; }
+	private static ObservableList<Order> ticketData = FXCollections.observableArrayList();
+	public static ObservableList<Order> getTicketData() { return ticketData; }
+	
 	
 	public void setMain(Main main){
 		this.main = main;
@@ -51,13 +61,22 @@ public class TicketsController extends MainWindowController{
 		datasource.open();
 		eventData = datasource.queryEvents();
 
+		orderIdColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderID"));
+		orderTypeColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("ticketName"));
+		orderEmailColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderEmail"));
+		orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
+		orderValidColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderValid"));
+		
 		
 		eventView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 		eventNameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("EventName"));
 		eventView.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> showInfo(newValue));
-		ticketData = datasource.queryTicketName();
-		ticketSelection.setItems(ticketData);
+		
+		ticketData = datasource.queryOrders();
+		orderView.setItems(ticketData);
+		ticketName = datasource.queryTicketName();
+		ticketSelection.setItems(ticketName);
 	}
 	
 	
@@ -81,7 +100,7 @@ public class TicketsController extends MainWindowController{
 		}
 		}
 	generate_qr(code,code);
-	String filename = "/Users/x/QRCODE/"+ code +".png";
+	String filename = d + "/" +code +".png";
 
 	MimeBodyPart messageBodyPart = new MimeBodyPart();
 	Multipart multipart = new MimeMultipart();
@@ -121,11 +140,11 @@ public class TicketsController extends MainWindowController{
     msg.setSentDate(new Date());
     msg.setContent(multipart, messageText);
 
-   Transport transport=mailSession.getTransport("smtp");
+   Transport transport = mailSession.getTransport("smtp");
    transport.connect(host, user, password);
    transport.sendMessage(msg, msg.getAllRecipients());
    transport.close();
-   System.out.println("message send successfully");
+   System.out.println("Message sent successfully!");
    
    Order order = new Order();
    
@@ -161,7 +180,7 @@ public class TicketsController extends MainWindowController{
 	
 	public static void generate_qr(String image_name,String qrCodeData) {
         try {
-            String filePath = "/Users/x/QRCODE/"+image_name+".png";
+            String filePath = d+"/"+image_name+".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
@@ -191,6 +210,17 @@ public class TicketsController extends MainWindowController{
 	    }
 	    return code;
 	}
+	
+	@FXML
+	public void browse(){
+		DirectoryChooser dc = new DirectoryChooser();
+		d = dc.showDialog(null);
+		
+		if(d != null){
+			tempFolderField.setText(d.toString() + "/");
+		}
+	}
+	
 	
 
 }

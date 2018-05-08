@@ -53,20 +53,13 @@ public class MainWindowController{
 	
 	}
 	
-	@FXML
-	public void handleNewEvent() {
-		
-	}
 	
 	@FXML
 	public void handleDashboard() throws IOException {
 		main.mainWindow();
 	}
 	
-	@FXML
-	public void handleAnalytics() throws IOException {
-		main.analyticsWindow();
-	}
+
 	
 	@FXML
 	public void handleTickets() throws IOException{
@@ -87,6 +80,10 @@ public class MainWindowController{
 	@FXML
 	public void handleCreateEvent() {
 		main.createEventWindow();
+	}
+	
+	public void newTicketView() {
+		main.createTicketWindow();
 	}
 	
 }

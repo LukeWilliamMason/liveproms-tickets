@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -119,13 +120,13 @@
                         <Insets bottom="105.0" left="382.0" />
                      </GridPane.margin>
                   </Line>
-                  <TableView prefHeight="314.0" prefWidth="764.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 2.5; -fx-border-color: #707070; -fx-border-width: 0.25;">
+                  <TableView fx:id="orderView" prefHeight="314.0" prefWidth="764.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 2.5; -fx-border-color: #707070; -fx-border-width: 0.25;">
                     <columns>
-                      <TableColumn prefWidth="120.0" text="Ticket Number" />
-                      <TableColumn prefWidth="240.0" text="Ticket Type" />
-                        <TableColumn prefWidth="231.0" text="Customer Email" />
-                        <TableColumn minWidth="9.0" prefWidth="105.0" text="Order Date" />
-                        <TableColumn minWidth="1.0" prefWidth="66.0" text="Valid" />
+                      <TableColumn fx:id="orderIdColumn" prefWidth="120.0" text="Ticket Number" />
+                      <TableColumn fx:id="orderTypeColumn" prefWidth="240.0" text="Ticket Type" />
+                        <TableColumn fx:id="orderEmailColumn" prefWidth="231.0" text="Customer Email" />
+                        <TableColumn fx:id="orderDateColumn" minWidth="9.0" prefWidth="105.0" text="Order Date" />
+                        <TableColumn fx:id="orderValidColumn" minWidth="1.0" prefWidth="66.0" text="Valid" />
                     </columns>
                      <GridPane.margin>
                         <Insets top="5.0" />
@@ -168,9 +169,9 @@
                         <DropShadow color="#e1e1e1" height="8.86" radius="3.9299999999999997" width="8.86" />
                      </effect>
                   </TextField>
-                  <Button fx:id="sendInvitationButton" lineSpacing="5.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="27.0" prefWidth="135.0" styleClass="general-button" text="Send Invitation" GridPane.rowIndex="1">
+                  <Button fx:id="sendInvitationButton" lineSpacing="5.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="27.0" prefWidth="354.0" styleClass="general-button" text="Send Invitation" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets bottom="10.0" left="590.0" top="215.0" />
+                        <Insets bottom="10.0" left="400.0" top="215.0" />
                      </GridPane.margin>
                      <effect>
                         <DropShadow color="#bfbfbf" />
@@ -204,7 +205,7 @@
                   </TableView>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="37.0" prefWidth="374.0" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="newTicketButton" lineSpacing="5.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="376.0" styleClass="general-button" text="New">
+                        <Button lineSpacing="5.0" mnemonicParsing="false" onAction="#newTicketView" prefHeight="27.0" prefWidth="376.0" styleClass="general-button" text="New">
                            <HBox.margin>
                               <Insets bottom="5.0" left="2.5" right="2.5" top="5.0" />
                            </HBox.margin>
@@ -233,6 +234,33 @@
                         <Insets left="480.0" top="50.0" />
                      </GridPane.margin>
                   </JFXComboBox>
+                  <Label prefHeight="20.0" prefWidth="104.0" text="Temp Folder :" textFill="#727272" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Helvetica Light" size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="400.0" top="130.0" />
+                     </GridPane.margin>
+                     <tooltip>
+                        <Tooltip prefHeight="30.0" prefWidth="30.0" text="Empty Tooltip" />
+                     </tooltip>
+                  </Label>
+                  <TextField fx:id="tempFolderField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browse" prefHeight="27.0" prefWidth="167.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-width: 0.25; -fx-border-radius: 2.5;" GridPane.rowIndex="1">
+                     <effect>
+                        <DropShadow color="#e1e1e1" height="8.86" radius="3.9299999999999997" width="8.86" />
+                     </effect>
+                     <GridPane.margin>
+                        <Insets left="510.0" top="130.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button fx:id="browsebutton" lineSpacing="5.0" mnemonicParsing="false" onAction="#browse" prefHeight="27.0" prefWidth="69.0" styleClass="general-button" text="Browse" GridPane.rowIndex="1">
+                     <effect>
+                        <DropShadow color="#bfbfbf" />
+                     </effect>
+                     <GridPane.margin>
+                        <Insets left="685.0" top="130.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" />
@@ -284,11 +312,6 @@
                               </Button>
                            </children>
                         </HBox>
-                        <Button fx:id="analyticsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleAnalytics" prefHeight="38.0" prefWidth="190.0" styleClass="sidebar-btns" text="Analytics" textFill="#727272">
-                           <font>
-                              <Font name="Helvetica Light" size="18.0" />
-                           </font>
-                        </Button>
                         <HBox>
                            <children>
                               <Button fx:id="validTicketsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="37.5" prefWidth="205.0" styleClass="sidebar-btns" text="Tickets" textFill="#1c1c1c">
@@ -317,7 +340,6 @@
                   <VBox layoutX="20.0" layoutY="12.0" spacing="26.0">
                      <children>
                         <FontAwesomeIconView fill="#e4e4e4" glyphName="DASHBOARD" scaleX="1.6" scaleY="1.6" />
-                        <MaterialDesignIconView fill="#e4e4e4" glyphName="CHART_AREASPLINE" scaleX="1.75" scaleY="1.75" />
                         <FontAwesomeIconView fill="#0086b8" glyphName="TICKET" scaleX="1.75" scaleY="1.75">
                            <VBox.margin>
                               <Insets bottom="-5.0" />

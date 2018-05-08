@@ -67,26 +67,6 @@ public class Main extends Application {
 		}
 	}
 	
-	public void analyticsWindow() {
-
-		try {
-
-		FXMLLoader loader = new FXMLLoader(Main.class.getResource("AnalyticsView.fxml"));
-		AnchorPane pane = loader.load();
-		Scene scene = new Scene(pane);
-		
-		Stage stage = new Stage();
-		
-		AnalyticsController controller = loader.getController();
-		controller.setMain(this, stage);
-
-		primaryStage.setScene(scene);
-		primaryStage.show();
-
-		} catch (Exception e) {
-		e.printStackTrace();
-		}
-		}
 	
 	public void venuesWindow() {
 
@@ -188,6 +168,31 @@ public class Main extends Application {
 			stage.initModality(Modality.APPLICATION_MODAL);
 			
 			stage.setTitle("Create Event");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void createTicketWindow()  {
+		try{
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("NewTicketView.fxml"));
+			AnchorPane pane = loader.load();
+			
+			Scene scene = new Scene(pane);		
+			Stage stage = new Stage();
+			
+			NewTicketController controller = loader.getController();
+			controller.setMain(this, stage);
+			
+			stage.initOwner(primaryStage);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			
+			stage.setTitle("New Ticket");
 			stage.setScene(scene);
 			stage.setResizable(false);
 			stage.show();
