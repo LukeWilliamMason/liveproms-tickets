@@ -6,13 +6,11 @@ import com.jfoenix.controls.JFXDatePicker;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -78,14 +76,9 @@ public class CreateEventController extends MainWindowController {
 		Datasource datasource = new Datasource();
 		datasource.open();
 		datasource.insertEvent(event);
+		eventData = datasource.queryEvents();
 		datasource.close();
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		   alert.setTitle("Success!");
-		   alert.setHeaderText("New event added.");
-		   alert.setContentText(eventName + " has successfully been created.");
-		   alert.showAndWait();
 		stage.close();
-		
 		
 	}
 	

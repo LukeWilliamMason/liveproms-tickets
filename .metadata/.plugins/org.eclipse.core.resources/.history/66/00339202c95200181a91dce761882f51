@@ -1,9 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 
 public class VenuesController extends MainWindowController{
 	
@@ -62,13 +60,6 @@ public class VenuesController extends MainWindowController{
 		datasource.insertVenue(venue);
 		datasource.close();
 		
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		   alert.setTitle("Success!");
-		   alert.setHeaderText("New venue added.");
-		   alert.setContentText(venueName + " has successfully been created.");
-		   alert.showAndWait();
-		
-		initialize();
 	}
 	
 }

@@ -150,8 +150,8 @@ public class TicketsController extends MainWindowController{
    alert.setTitle(subject);
    alert.setHeaderText("Invitation successfully sent.");
    alert.setContentText("An email has been sent to " + to);
+
    alert.showAndWait();
-   
 }catch(Exception ex)
 {
     System.out.println(ex);

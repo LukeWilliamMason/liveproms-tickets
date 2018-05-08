@@ -166,28 +166,6 @@ public class Datasource   {
         	}
        }
         
-        public void insertVenue(Venue venue){
-        	try{
-        		conn.createStatement();
-        		PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO " + TABLE_VENUES + " VALUES (?, ?, ?, ?, ?, ?, ?);"  );
-        		preparedStatement.setString(1, venue.getVenueName());
-        		preparedStatement.setString(2, venue.getVenueAddressLineOne());
-        		preparedStatement.setString(3, venue.getVenueAddressLineTwo()); 
-        		preparedStatement.setString(4, venue.getVenueTownCity());
-        		preparedStatement.setString(5, venue.getVenuePostcode());
-        		preparedStatement.setString(6, venue.getVenueEmail());
-        		preparedStatement.setString(7, venue.getVenueTel());
-        		preparedStatement.execute();
-        	{   		
-     		
-
-        		System.out.println("Order Successfully Added");
-        		
-        	}} catch(SQLException e) {
-        		System.out.println("Query failed:" + e.getMessage()); 
-        	}
-       }
-        
 
 
         public List<User> queryUsers(){

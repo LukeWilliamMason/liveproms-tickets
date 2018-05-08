@@ -18,6 +18,7 @@ public class SharedPrefManager {
 
     private static final String SHARED_PREF_NAME = "mysharedpref12";
     private static final String KEY_USERNAME = "username";
+    public static final String  KEY_CODE = "code";
 
 
     private SharedPrefManager(Context context) {
@@ -30,6 +31,18 @@ public class SharedPrefManager {
             mInstance = new SharedPrefManager(context);
         }
         return mInstance;
+    }
+
+    public boolean scan(String code){
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(KEY_CODE, code);
+
+        editor.apply();
+
+        return true;
     }
 
     public boolean userLogin(String username){

@@ -176,7 +176,7 @@ public class Datasource   {
         		preparedStatement.setString(4, venue.getVenueTownCity());
         		preparedStatement.setString(5, venue.getVenuePostcode());
         		preparedStatement.setString(6, venue.getVenueEmail());
-        		preparedStatement.setString(7, venue.getVenueTel());
+        		preparedStatemtn.setSting(7, venue.getVenueTel());
         		preparedStatement.execute();
         	{   		
      		

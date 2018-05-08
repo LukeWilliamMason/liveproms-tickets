@@ -78,14 +78,14 @@ public class CreateEventController extends MainWindowController {
 		Datasource datasource = new Datasource();
 		datasource.open();
 		datasource.insertEvent(event);
+		eventData = datasource.queryEvents();
 		datasource.close();
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		   alert.setTitle("Success!");
 		   alert.setHeaderText("New event added.");
 		   alert.setContentText(eventName + " has successfully been created.");
 		   alert.showAndWait();
 		stage.close();
-		
 		
 	}
 	

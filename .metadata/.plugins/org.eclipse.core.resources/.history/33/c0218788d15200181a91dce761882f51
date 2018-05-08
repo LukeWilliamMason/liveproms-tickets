@@ -62,7 +62,7 @@ public class VenuesController extends MainWindowController{
 		datasource.insertVenue(venue);
 		datasource.close();
 		
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		   alert.setTitle("Success!");
 		   alert.setHeaderText("New venue added.");
 		   alert.setContentText(venueName + " has successfully been created.");

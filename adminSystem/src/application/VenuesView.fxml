@@ -231,7 +231,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <TextField fx:id="eventNameArea" layoutX="164.0" layoutY="57.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <TextField fx:id="venueNameField" layoutX="164.0" layoutY="57.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
@@ -244,7 +244,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <TextField fx:id="eventStartDateArea" layoutX="164.0" layoutY="119.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <TextField fx:id="venueAddressLineOneField" layoutX="164.0" layoutY="119.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
@@ -257,7 +257,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <TextField fx:id="eventEndDateArea" layoutX="164.0" layoutY="179.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <TextField fx:id="venueAddressLineTwoField" layoutX="164.0" layoutY="179.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
@@ -278,7 +278,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <TextField fx:id="eventVenueNameField" layoutX="164.0" layoutY="239.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <TextField fx:id="venueTownCityField" layoutX="164.0" layoutY="239.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
@@ -291,8 +291,8 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <Button layoutX="400.0" layoutY="236.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="general-button" text="Add Venue" />
-                        <TextField fx:id="eventVenueNameField1" layoutX="532.0" layoutY="56.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <Button layoutX="400.0" layoutY="236.0" mnemonicParsing="false" onAction="#addVenue" prefHeight="31.0" prefWidth="341.0" styleClass="general-button" text="Add Venue" />
+                        <TextField fx:id="venuePostcodeField" layoutX="532.0" layoutY="56.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
@@ -305,7 +305,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <TextField fx:id="eventVenueNameField11" layoutX="532.0" layoutY="118.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <TextField fx:id="venueTelephoneField" layoutX="532.0" layoutY="118.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
@@ -318,7 +318,7 @@
                               <DropShadow color="#ebebeb" />
                            </effect>
                         </Label>
-                        <TextField fx:id="eventVenueNameField111" layoutX="532.0" layoutY="177.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
+                        <TextField fx:id="venueEmailField" layoutX="532.0" layoutY="177.0" prefHeight="27.0" prefWidth="208.0" style="-fx-background-color: white; -fx-border-color: #727272; -fx-border-radius: 2.5; -fx-border-width: 0.25;">
                            <effect>
                               <DropShadow color="#e8e8e8" height="5.82" radius="3.17" width="8.86" />
                            </effect>
